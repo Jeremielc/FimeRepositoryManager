@@ -5,7 +5,7 @@
       <!-- Fixed navbar -->
       <?php include_once("html/navbar.html"); ?>
 
-      <div class="content">
+      <div class="container">
             <!-- Section -->
             <section id="intro" class="intro-section">
                 <div class="container">
