@@ -47,10 +47,13 @@
     background-color: #FFF;
 }
 
-/*--------------- Décallage du contenu vers le bas à partir de la navbar --------------------*/
+/*--------------- Beginning of the container of the page --------------------*/
 body {
     min-height: 2000px;
     padding-top: 70px;
 }
 
 /*--------------- Register Form --------------*/
+.group-register{
+    padding-bottom: 12px;
+}
