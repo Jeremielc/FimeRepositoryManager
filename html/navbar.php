@@ -12,7 +12,7 @@
     <!-- Menu button -->
     <div class="navbar-collapse collapse" id="navbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
+        <li class="active"><a href="index.php">Home</a></li>
         <li><a href="#">Lastest Version</a></li>
         <li><a href="#">All</a></li>
       </ul>
@@ -20,7 +20,7 @@
       <ul class="nav navbar-nav navbar-right" style="padding-right: 30px">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login <b class="caret"></b></a>
-          <ul class="dropdown-menu" style="padding: 15px;min-width: 250px;">
+          <ul class="dropdown-menu" style="padding: 15px;min-width: 280px;">
             <li>
               <div class="row">
                 <div class="col-md-12">
@@ -42,8 +42,13 @@
                         <input type="checkbox"> Remember me
                       </label>
                     </div>
-                    <button type="submit" class="btn btn-primary">Login</button>
-                    <span class="pull-right" style="padding-top: 5px;"><a href="#">Forgot Password?</a></span>
+                    <div class="form-group" style="margin-bottom: 0px;">
+                      <button type="submit" class="btn btn-success btn-block">Login</button>
+                      <p class="help-block" style="margin-top: 5px">Forgot your password ? <a href="#">Get it</a></p>
+                      <p class="text-center text-muted h4"> or </p>
+                      <a href="create_Account.php" class="btn btn-warning btn-block">Registration</a>
+
+                    </div>
                   </form>
                 </div>
               </div>

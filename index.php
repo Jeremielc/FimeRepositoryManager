@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html lang="fr">
-  <?php include("html/header.html"); ?>
-  <body>
-      <!-- Fixed navbar -->
-      <?php include_once("html/navbar.html"); ?>
+<?php require("html/header.php"); ?>
+
+<?php require("html/navbar.php"); ?>
 
       <div class="container">
             <!-- Section -->
@@ -35,6 +32,5 @@
                 </div>
             </section>
       </div>
-  </body>
-  <?php include("html/footer.html"); ?>
- </html>
+
+<?php require("html/footer.php"); ?>
