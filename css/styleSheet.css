@@ -57,3 +57,10 @@ body {
 .group-register{
     padding-bottom: 12px;
 }
+
+.btn-custom, .btn-custom:hover, .btn-custom:focus, .btn-custom.focus,
+.btn-custom:active, .btn-custom.active, .btn-custom:visited,
+.btn-custom:active:hover, .btn-custom.active:hover{
+    background-color: #8C618C;
+    color:#fff;
+}

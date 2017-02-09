@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" style="padding-left: 120px" href="#">Reman</a>
+      <a class="navbar-brand" style="padding-left: 120px" href="index.php">Reman</a>
     </div>
     <!-- Menu button -->
     <div class="navbar-collapse collapse" id="navbar">
@@ -27,8 +27,8 @@
                   <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
                     <div class="form-group">
                       <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
-                        <input id="emailInput" placeholder="Email address" class="form-control" type="email" oninvalid="setCustomValidity('Enter a valid email address!')" onchange="try{setCustomValidity('')}catch(e){}" required="">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user color-blue"></i></span>
+                        <input id="CUID" placeholder="CUID" class="form-control" type="text" required="true" minlength="8" maxlength="8" >
                       </div>
                     </div>
                     <div class="form-group">
@@ -43,11 +43,10 @@
                       </label>
                     </div>
                     <div class="form-group" style="margin-bottom: 0px;">
-                      <button type="submit" class="btn btn-success btn-block">Login</button>
+                      <button type="submit" class="btn btn-custom btn-block">Login</button>
                       <p class="help-block" style="margin-top: 5px">Forgot your password ? <a href="#">Get it</a></p>
                       <p class="text-center text-muted h4"> or </p>
                       <a href="create_Account.php" class="btn btn-warning btn-block">Registration</a>
-
                     </div>
                   </form>
                 </div>
