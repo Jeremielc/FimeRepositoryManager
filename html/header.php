@@ -20,5 +20,12 @@
   <link href="/<?php echo $rootSite ?>/js/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
   <!-- Main styleSheet -->
   <link href="/<?php echo $rootSite ?>/css/styleSheet.css" rel="stylesheet">
+
+  <script src='./js/jquery.min.js'></script>
+  <script src='./js/bootstrap/js/bootstrap.min.js'></script>
+
+  <!-- Lib of validating field-->
+  <script src='./js/bootstrap/js/bootstrapvalidator.min.js'></script>
+
 </head>
 <body>
