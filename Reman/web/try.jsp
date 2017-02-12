@@ -1,6 +1,6 @@
-<?php require("html/header.php"); ?>
-    <!-- Fixed navbar -->
-<?php require("html/navbar.php"); ?>
+<jsp:include page="html/header.jsp" />
+<jsp:include page="html/navbar.jsp" />
+
 <div class="hero-unit">
     <h1>Contact Form</h1>
     </br>
@@ -42,4 +42,5 @@
         </div>
     </form>
 </div>
-<?php require("html/footer.php"); ?>
+
+<jsp:include page="html/footer.jsp" />
