@@ -1,0 +1,15 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Reman:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Reman_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Reman/web/Web3" />
+      <element id="javaee-facet-resources" facet="Reman/web/Web" />
+      <element id="javaee-facet-resources" facet="Reman/web/Web2" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Reman" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

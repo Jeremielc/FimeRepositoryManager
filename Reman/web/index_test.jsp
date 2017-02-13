@@ -1,7 +1,3 @@
-<%@ page import="sample.HelloWorld" %>
-<%@ page import="java.io.File" %>
-<%@ page import="java.util.TreeSet" %>
-<%@ page import="java.util.Set" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
