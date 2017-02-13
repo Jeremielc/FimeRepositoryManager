@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>SI Test</title>
+<script src="vkbeautify.js"></script>
+<script>
+//var baseURL="http://localhost:8080/fr.ensicaen.si.jersey/si/";
+var baseURL="si/";
+var champ_vide="Erreur ! un champ est vide.";
+
+function isXml() {
+    return document.getElementById("btxml").checked;
+
+}
+
+function execRequest(url) {
+	var req = new XMLHttpRequest();
+    req.open("GET", url, false);
+    if (isXml())
+    	req.setRequestHeader("Accept", "text/xml");
+    else
+    	req.setRequestHeader("Accept", "application/json");
+    //req.setRequestHeader("Accept-charset", "iso-8859-1");
+    req.setRequestHeader("Accept-charset", "utf-8");
+    req.send(null);
+
+    var fen=document.getElementById("ta");
+    var status = document.getElementById("status");
+    status.value = req.status;
+    if (req.status == 404) {
+        fen.value = req.responseText;
+        return false;
+    }
+    if (isXml())
+    	fen.value = vkbeautify.xml(req.responseText, 2);
+    else
+    	fen.value = vkbeautify.json(req.responseText, 2);
+    return false;
+}
+
+function execCount() {
+	var req = new XMLHttpRequest();
+    req.open("GET", "si/clients/count", false);
+    req.setRequestHeader("Accept", "text/plain");
+    req.send(null);
+
+    var fen=document.getElementById("ta");
+    fen.value = req.responseText;
+    return false;
+}
+
+function execForm(formul, url) {
+    if (isXml()) {
+        document.forms[formul].action = url;
+        return true;
+    }
+    var req = new XMLHttpRequest();
+    req.open("GET", url, false);
+    req.setRequestHeader("Accept", "application/json");
+    req.setRequestHeader("Accept-charset", "iso-8859-1");
+    req.send(null);
+
+    var fen=document.getElementById("output");
+    fen.innerHTML = req.responseText;
+    return false;
+}
+
+function clientSubmit()
+{
+	var n = document.forms["frm1"]["nom"].value;
+	if (n==null || n=="") {
+		alert(champ_vide);
+		return false;
+	}
+	var url = baseURL+"clients/search/"+n;
+	return execRequest(url);
+}
+
+function clientSubmit2()
+{
+	var n = document.forms["frm2"]["nom"].value;
+	var p = document.forms["frm2"]["prenom"].value;
+	if (n==null || n=="") {
+		alert(champ_vide);
+		return false;
+	}
+	var url = baseURL+"clients/search/"+n;
+	if (!(p==null || p=="")) {
+		url += "/"+p;
+	}
+    return execRequest(url);
+}
+
+function clientSubmit3()
+{
+	var id = document.forms["frmcid"]["id"].value;
+	if (id==null || id=="") {
+		alert(champ_vide);
+		return false;
+	}
+	var url = baseURL+"clients/id/"+id;
+	return execRequest(url);
+}
+
+function clientSubmit4()
+{
+	var n = document.forms["frmaddc"]["lastname"].value;
+	var p = document.forms["frmaddc"]["firstname"].value;
+	if (n==null || n=="" || p==null || p=="") {
+		alert(champ_vide);
+		return false;
+	}
+
+	var req = new XMLHttpRequest();
+    req.open("POST", baseURL+"clients/add", false);
+    req.setRequestHeader("Accept", "text/plain");
+    req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    req.send("firstname="+p+"&lastname="+n);
+
+    var fen=document.getElementById("ta");
+    fen.value = req.responseText;
+    return false;
+}
+
+function clientSubmit5()
+{
+	var id = document.forms["frmdelc"]["id"].value;
+	if (id==null || id=="") {
+		alert(champ_vide);
+		return false;
+	}
+
+	var req = new XMLHttpRequest();
+	req.open("DELETE", baseURL+"clients/del/"+id, false);
+	req.setRequestHeader("Accept", "text/plain");
+	req.send();
+
+	var fen=document.getElementById("ta");
+	fen.value = req.responseText;
+	return false;
+}
+
+function opeSubmit()
+{
+	var id = document.forms["frm3"]["id"].value;
+	if (id==null || id=="") {
+		alert(champ_vide);
+		return false;
+	} 
+	var url = baseURL+"ope/id/"+id;
+    return execRequest(url);
+}
+
+function opeSubmit2()
+{
+	var nom2 = document.forms["frm4"]["nom2"].value;
+	if (nom2==null || nom2=="") {
+		alert(champ_vide);
+		return false;
+	} 
+	var url = baseURL+"ope/"+nom2;
+    return execRequest(url);
+}
+</script>
+</head>
+<body>
+  <table style="width:100%;">
+  <tr><td width="40%">
+  <div style="border: 1px solid blue;width:99%;" id="outputformat">
+    Format de sortie :<br/>
+    <label for="btxml">XML</label><input name="btFormat" type="radio" id="btxml" value="xml" /><br/>
+    <label for="btjson">JSON</label><input name="btFormat" type="radio" id="btjson" value="json" checked><br/>
+  </div>
+  <br/>
+  <div style="border: 1px solid blue;width:99%;">
+	  <a href="#" onclick="execRequest('si/clients');">R&eacute;cup&eacute;rer la liste des clients</a><br/>
+	  <a href="#" onclick="execCount()">R&eacute;cup&eacute;rer le nombre de clients</a><br/>
+	  <br/>
+	  Chercher un client dont le nom commence par ...
+	  <form name="frm1" action="#" onSubmit="return clientSubmit()" method="get">
+	  	<label for="nom">Nom:</label>
+	  	<input type="text" id="nom" name="nom" />
+	  	<input type="submit" value="Submit" />
+	  </form>
+	  <br/>
+	  Chercher un client dont le nom et le prénom commencent par ...
+	  <form name="frm2" action="#" onSubmit="return clientSubmit2()" method="get">
+	  	<label for="nom2">Nom:</label>
+	  	<input type="text" name="nom" id="nom2" />
+	  	<label for="prenom">Prenom:</label>
+	  	<input type="text" name="prenom" id="prenom" />
+	  	<input type="submit" value="Submit" />
+	  </form>
+	  <br/>
+	  Afficher un client dont l'id est ...
+	  <form name="frmcid" action="#" onSubmit="return clientSubmit3()" method="get">
+	  	<label for="idcid">Id:</label>
+	  	<input type="text" name="id" id="idcid" />
+	  	<input type="submit" value="Submit" />
+	  </form>
+	  <br/>
+	  Ajouter un client dont le nom et le prénom sont ...
+	  <form name="frmaddc" action="#" onSubmit="return clientSubmit4()" method="post">
+	  	<label for="nom4">Nom:</label>
+	  	<input type="text" name="lastname" id="nom4" />
+	  	<label for="prenom3">Prenom:</label>
+	  	<input type="text" name="firstname" id="prenom4" />
+	  	<input type="submit" value="Submit" />
+	  </form>
+	  <br/>
+	  Supprimer un client dont l'id est ...
+	  <form name="frmdelc" action="#" onSubmit="return clientSubmit5()" method="post">
+	  	<label for="idcid">Id:</label>
+	  	<input type="text" name="id" id="idcid" />
+	  	<input type="submit" value="Submit" />
+	  </form>
+	  <br/>
+	  Chercher la liste des op&eacute;rations pour le client dont l'id est ...
+	  <form name="frm3" action="#" onSubmit="return opeSubmit()" method="get">
+	    <label for="id">Id Client:</label>
+	  	<input type="text" name="id" id="id" />
+	  	<input type="submit" value="Submit" />
+	  </form>
+	  <br/>
+	  Chercher la liste des op&eacute;rations pour le client dont le nom commence par ...
+	  <form name="frm4" action="#" onSubmit="return opeSubmit2()" method="get">
+	  	<label for="nom3">Nom Client:</label>
+	  	<input type="text" name="nom2" id="nom3" />
+	  	<input type="submit" value="Submit" />
+	  </form>
+  </div>
+  </td>
+  <td>
+  <div style="border: 1px solid blue;width:100%;" id="stat"><label for="status">Status Code :</label><textarea id="status" style="height:20px;width:99%;" readonly></textarea></div><br/>
+  <div style="border: 1px solid blue;width:100%;" id="output"><textarea id="ta" style="height:500px;width:99%;" readonly></textarea></div>
+  </td></tr>
+  </table>
+</body>
+</html>
