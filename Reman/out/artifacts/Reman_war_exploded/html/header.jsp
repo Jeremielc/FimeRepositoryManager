@@ -8,17 +8,17 @@
 
     <title>Reman</title>
 
-    <!--<?php
-      $uri = $_SERVER["REQUEST_URI"];
-      $uriArray = explode("/", $uri);
-      $rootSite = $uriArray[1];
-    ?>-->
-
     <!-- Bootstrap core CSS -->
-    <link href="../js/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../js/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap theme -->
-    <link href="../js/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <link href="../js/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
     <!-- Main styleSheet -->
-    <link href="../js/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <link href="../css/styleSheet.css" rel="stylesheet">
+
+    <script type="text/javascript" src='../js/jquery.min.js'></script>
+    <script type="text/javascript" src='../js/bootstrap/js/bootstrap.min.js'></script>
+
+    <!-- Lib of validating field-->
+    <script type="text/javascript" src='../js/bootstrap/js/bootstrapvalidator.min.js'></script>
 </head>
 <body>
