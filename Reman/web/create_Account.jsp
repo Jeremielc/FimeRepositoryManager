@@ -64,11 +64,11 @@
                     </div>
                 </div>
                 <div class="col-md-4 col-md-offset-4" style="padding-right: 0px;">
-                    <button class="btn btn-custom btn-block" type="submit">Register</button></p>
+                    <button class="btn btn-custom btn-block" type="submit">Register</button>
                 </div>
             </form>
             <div class="col-md-4" style="padding-right: 0px;">
-                <a href="../index.jsp" class="btn btn-warning btn-block">Cancel</a>
+                <a href="index.jsp" class="btn btn-warning btn-block">Cancel</a>
             </div>
         </div>
     </div>
@@ -143,7 +143,7 @@
                             message: 'This password doesn\'t match'
                         }
                     }
-                },
+                }
             }
         })
     });
