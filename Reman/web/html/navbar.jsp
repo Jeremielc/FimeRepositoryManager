@@ -24,17 +24,17 @@
                         <li>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                                    <form class="form" role="form" method="post" action="Reman/user/login" accept-charset="UTF-8" id="login-nav">
                                         <div class="form-group">
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user color-blue"></i></span>
-                                                <input id="CUID" placeholder="CUID" class="form-control text-uppercase" type="text" required="true" minlength="8" maxlength="8" >
+                                                <input name="username" id="CUID" placeholder="CUID" class="form-control text-uppercase" type="text" required="true" minlength="8" maxlength="8" >
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock color-blue"></i></span>
-                                                <input id="passwordInput" placeholder="Password" class="form-control" type="password" oninvalid="setCustomValidity('Enter a password!')" onchange="try{setCustomValidity('')}catch(e){}" required="">
+                                                <input name="password" id="passwordInput" placeholder="Password" class="form-control" type="password" oninvalid="setCustomValidity('Enter a password!')" onchange="try{setCustomValidity('')}catch(e){}" required="">
                                             </div>
                                         </div>
                                         <div class="checkbox">
