@@ -1,3 +1,6 @@
+<%@ page import="com.fimelab.reman.pojo.ToolArchiveFile" %>
+<%@ page import="com.fimelab.reman.controller.HomePageController" %>
+<%@ page import="java.util.Set" %>
 <jsp:include page="html/header.jsp" />
 <jsp:include page="html/navbar.jsp" />
 
@@ -18,22 +21,35 @@
                         </tr>
                         </thead>
                         <tbody>
+                        <%
+                            /*HomePageController hpc = new HomePageController();
+                            Set<ToolArchiveFile> tools = hpc.getTools();
+
+                            for (ToolArchiveFile taf : tools) {
+                                out.println("                        <tr>");
+                                out.println("                            <td>" + taf.getToolName() + "</td>");
+                                out.println("                            <td>" + taf.getToolVersion() + "</td>");
+                                out.println("                            <td>" + taf.getToolStatus() + "</td>");
+                                out.println("                            <td><input type=\"checkbox\" value=\"" + taf.isQualified() + "\"></td>");
+                                out.println("                            <td>");
+                                out.println("                                <form method=\"get\" action=\"/Reman/home/download\">");
+                                out.println("                                    <button class=\"btn btn-success\" type=\"submit\">Download</button>");
+                                out.println("                                </form>");
+                                out.println("                            </td>");
+                                out.println("                        </tr>");
+                            }*/
+                        %>
                         <tr>
-                            <td>Eval</td>
+                            <td>testTool</td>
                             <td>1.0</td>
-                            <td>Debug</td>
-                            <td><input type="checkbox" value=""></td>
+                            <td>stabe</td>
                             <td>
-                                <a href="#" class="btn btn-success">Download</a>
+                                <input title="qualified" type="checkbox" value="" />
                             </td>
-                        </tr>
-                        <tr>
-                            <td>INQ</td>
-                            <td>5.2.0</td>
-                            <td>Official</td>
-                            <td><input type="checkbox" value=""></td>
                             <td>
-                                <a href="#" class="btn btn-success">Download</a>
+                                <form method="post" action="Reman/home/download">
+                                    <button name="filename" value="testTool-v1.0-stable.zip" class="btn btn-success" type="submit">Download</button>
+                                </form>
                             </td>
                         </tr>
                         </tbody>

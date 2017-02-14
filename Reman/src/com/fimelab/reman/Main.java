@@ -23,7 +23,7 @@ public class Main {
         for (ToolArchiveFile taf : toolsList) {
             System.out.println("Name : " + taf.getToolName());
             System.out.println("Version : " + taf.getToolVersion());
-            System.out.println("State : " + taf.getToolState());
+            System.out.println("State : " + taf.getToolStatus());
             System.out.println();
         }*/
 

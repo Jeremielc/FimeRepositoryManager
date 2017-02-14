@@ -17,7 +17,7 @@ public class FileNameParser {
         while (st.hasMoreTokens()) {
             taf.setToolName(st.nextToken());
             taf.setToolVersion(st.nextToken().substring(1));
-            taf.setToolState(st.nextToken().replaceAll(".zip", ""));
+            taf.setToolStatus(st.nextToken().replaceAll(".zip", ""));
         }
 
         return taf;
