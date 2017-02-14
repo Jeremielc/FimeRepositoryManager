@@ -15,13 +15,6 @@ import java.util.HashMap;
 
 @Path("/user")
 public class LoginPageController {
-    //password is received.
-    //password is hashed. -> SHA 256
-    //cuid || firstname || lastname || mail -> SHA 256
-    //passHash = SHA256(password) XOR SHA256(cuid || firstname || lastname || mail);
-
-    //select cuid, firstname, lastname, mail from USERS join CREDENTIALS on USERS.uid = CREDENTIALS.uid;
-
     //private static HashMap<String, Boolean> users = new HashMap<String, Boolean>();
 
 
