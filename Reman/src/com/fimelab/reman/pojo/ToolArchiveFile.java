@@ -1,7 +1,7 @@
 package com.fimelab.reman.pojo;
 
 public class ToolArchiveFile implements Comparable<ToolArchiveFile> {
-    private String toolName, toolVersion, toolStatus, toolPath, qualificationReportPath;
+    private String toolName, toolVersion, toolStatus, toolPath, qualificationReportPath, publicationDate;
     private boolean archived, qualified;
 
     public ToolArchiveFile() {
@@ -14,14 +14,20 @@ public class ToolArchiveFile implements Comparable<ToolArchiveFile> {
         this.toolStatus = toolStatus;
     }
 
-    public ToolArchiveFile(String toolName, String toolVersion, String toolStatus, String toolPath, String qualificationReportPath, boolean archived, boolean qualified) {
+    public ToolArchiveFile(String toolName, String toolVersion, String toolStatus, String toolPath, String qualificationReportPath, String publicationDate, boolean archived, boolean qualified) {
         this.toolName = toolName;
         this.toolVersion = toolVersion;
         this.toolStatus = toolStatus;
         this.toolPath = toolPath;
         this.qualificationReportPath = qualificationReportPath;
+        this.publicationDate = publicationDate;
         this.archived = archived;
         this.qualified = qualified;
+    }
+
+    @Override
+    public int compareTo(ToolArchiveFile o) {
+        return this.getToolPath().compareTo(o.getToolPath());
     }
 
     public String getToolName() {
@@ -64,6 +70,14 @@ public class ToolArchiveFile implements Comparable<ToolArchiveFile> {
         this.qualificationReportPath = qualificationReportPath;
     }
 
+    public String getPublicationDate() {
+        return publicationDate;
+    }
+
+    public void setPublicationDate(String publicationDate) {
+        this.publicationDate = publicationDate;
+    }
+
     public boolean isArchived() {
         return archived;
     }
@@ -78,10 +92,5 @@ public class ToolArchiveFile implements Comparable<ToolArchiveFile> {
 
     public void setQualified(boolean qualified) {
         this.qualified = qualified;
-    }
-
-    @Override
-    public int compareTo(ToolArchiveFile o) {
-        return this.getToolName().compareTo(o.getToolName());
     }
 }

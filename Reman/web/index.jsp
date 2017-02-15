@@ -8,8 +8,9 @@
     <!-- Section -->
     <section id="intro" class="intro-section">
         <div class="container">
+            <h1>Active tools</h1>
             <div class="row">
-                <div class="col-md-10 col-md-offset-1">
+                <div class="col-md-11 col-md-offset-1">
                     <table class="table table-striped table-condensed">
                         <thead>
                         <tr>
@@ -17,41 +18,74 @@
                             <th>Version</th>
                             <th>Status</th>
                             <th>Qualified</th>
+                            <th>Publication date</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <%
-                            /*HomePageController hpc = new HomePageController();
-                            Set<ToolArchiveFile> tools = hpc.getTools();
+<%!
+    private HomePageController hpc = new HomePageController();
+    private Set<ToolArchiveFile> tools;
+%>
+<%
+    tools = hpc.listActiveArchiveFileFromDatabase();
 
-                            for (ToolArchiveFile taf : tools) {
-                                out.println("                        <tr>");
-                                out.println("                            <td>" + taf.getToolName() + "</td>");
-                                out.println("                            <td>" + taf.getToolVersion() + "</td>");
-                                out.println("                            <td>" + taf.getToolStatus() + "</td>");
-                                out.println("                            <td><input type=\"checkbox\" value=\"" + taf.isQualified() + "\"></td>");
-                                out.println("                            <td>");
-                                out.println("                                <form method=\"get\" action=\"/Reman/home/download\">");
-                                out.println("                                    <button class=\"btn btn-success\" type=\"submit\">Download</button>");
-                                out.println("                                </form>");
-                                out.println("                            </td>");
-                                out.println("                        </tr>");
-                            }*/
-                        %>
+    for (ToolArchiveFile taf : tools) {
+        out.println("                        <tr>");
+        out.println("                            <td>" + taf.getToolName() + "</td>");
+        out.println("                            <td>" + taf.getToolVersion() + "</td>");
+        out.println("                            <td>" + taf.getToolStatus() + "</td>");
+        out.println("                            <td>");
+        out.println("                                <input title=\"qualified\" type=\"checkbox\"" + (taf.isQualified() ? " checked=\"checked\" " : " ") + "disabled=\"disabled\"/>");
+        out.println("                            </td>");
+        out.println("                            <td>" + taf.getPublicationDate() + "</td>");
+        out.println("                            <td>");
+        out.println("                                <form method=\"post\" action=\"Reman/home/download\">");
+        out.println("                                    <button name=\"filename\" value=\"" + taf.getToolPath() + "\" class=\"btn btn-success\" type=\"submit\">Download</button>");
+        out.println("                                </form>");
+        out.println("                            </td>");
+        out.println("                        </tr>");
+    }
+%>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <h1>Archived tools</h1>
+            <div class="row">
+                <div class="col-md-11 col-md-offset-1">
+                    <table class="table table-striped table-condensed">
+                        <thead>
                         <tr>
-                            <td>testTool</td>
-                            <td>1.0</td>
-                            <td>stabe</td>
-                            <td>
-                                <input title="qualified" type="checkbox" value="" />
-                            </td>
-                            <td>
-                                <form method="post" action="Reman/home/download">
-                                    <button name="filename" value="testTool-v1.0-stable.zip" class="btn btn-success" type="submit">Download</button>
-                                </form>
-                            </td>
+                            <th>Name</th>
+                            <th>Version</th>
+                            <th>Status</th>
+                            <th>Qualified</th>
+                            <th>Publication date</th>
+                            <th>Actions</th>
                         </tr>
+                        </thead>
+                        <tbody>
+<%
+    tools = hpc.listArchivedArchiveFileFromDatabase();
+
+    for (ToolArchiveFile taf : tools) {
+        out.println("                        <tr>");
+        out.println("                            <td>" + taf.getToolName() + "</td>");
+        out.println("                            <td>" + taf.getToolVersion() + "</td>");
+        out.println("                            <td>" + taf.getToolStatus() + "</td>");
+        out.println("                            <td>");
+        out.println("                                <input title=\"qualified\" type=\"checkbox\"" + (taf.isQualified() ? " checked=\"checked\" " : " ") + "disabled=\"disabled\"/>");
+        out.println("                            </td>");
+        out.println("                            <td>" + taf.getPublicationDate() + "</td>");
+        out.println("                            <td>");
+        out.println("                                <form method=\"post\" action=\"Reman/home/download\">");
+        out.println("                                    <button name=\"filename\" value=\"" + taf.getToolPath() + "\" class=\"btn btn-success\" type=\"submit\">Download</button>");
+        out.println("                                </form>");
+        out.println("                            </td>");
+        out.println("                        </tr>");
+    }
+%>
                         </tbody>
                     </table>
                 </div>
