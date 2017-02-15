@@ -1,5 +1,5 @@
 <jsp:include page="html/header.jsp" />
-<jsp:include page="html/navbar.jsp" />
+<jsp:include page="html/navbar_registered.jsp" />
 
 <div class="container">
     <!-- Section -->
