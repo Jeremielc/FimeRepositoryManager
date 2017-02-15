@@ -46,7 +46,7 @@
                                             <button type="submit" class="btn btn-custom btn-block">Login</button>
                                             <p class="help-block" style="margin-top: 5px">Forgot your password ? <a href="javascript:;" data-toggle="modal" data-target="#forgot_password_Modal">Get it</a></p>
                                             <p class="text-center text-muted h4"> or </p>
-                                            <a href="../create_Account.jsp" class="btn btn-warning btn-block">Registration</a>
+                                            <a href="../register.jsp" class="btn btn-warning btn-block">Registration</a>
                                         </div>
                                     </form>
                                 </div>

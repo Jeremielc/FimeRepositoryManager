@@ -5,32 +5,32 @@
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
             <h1>Registration forms</h1>
-            <form id="register_form" class="register-form" action="" autocomplete="off" method="POST" >
+            <form id="register_form" class="register-form" action="Reman/register/new" autocomplete="off" method="POST" >
                 <div class="row">
-                    <div class="form-group col-md-6" style="padding-left: 0px;">
+                    <div class="form-group col-md-6" style="padding-left: 0;">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user color-blue"></i></span>
-                            <input id="first_name" name="first_name" placeholder="First name" class="form-control" type="text" required>
+                            <input id="firstname" name="firstname" placeholder="First name" class="form-control" type="text" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user color-blue"></i></span>
-                            <input id="last_name" name="last_name" placeholder="Last name" class="form-control" type="text" required>
+                            <input id="lastname" name="lastname" placeholder="Last name" class="form-control" type="text" required>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6" style="padding-left: 0px; padding-right: 15px;">
-                        <select class="form-control" name="team">
+                    <div class="col-md-6" style="padding-left: 0; padding-right: 15px;">
+                        <select title="group selection" class="form-control" name="team">
                             <option value="">Choose your team</option>
-                            <option value="reader">Reader</option>
-                            <option value="card">Card</option>
-                            <option value="mobile">Mobile</option>
-                            <option value="test_physics">Test Physics</option>
+                            <option value="Reader">Reader</option>
+                            <option value="Card">Card</option>
+                            <option value="Mobile">Mobile</option>
+                            <option value="Test physics">Test Physics</option>
                         </select>
                     </div>
-                    <div class="col-md-6" style="padding: 0px;">
+                    <div class="col-md-6" style="padding: 0;">
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user color-blue"></i></span>
@@ -63,11 +63,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-md-offset-4" style="padding-right: 0px;">
+                <div class="col-md-4 col-md-offset-4" style="padding-right: 0;">
                     <button class="btn btn-custom btn-block" type="submit">Register</button>
                 </div>
             </form>
-            <div class="col-md-4" style="padding-right: 0px;">
+            <div class="col-md-4" style="padding-right: 0;">
                 <a href="index.jsp" class="btn btn-warning btn-block">Cancel</a>
             </div>
         </div>
@@ -84,7 +84,7 @@
             },
 
             fields: {
-                first_name: {
+                firstname: {
                     validators: {
                         stringLength: {
                             min: 2,
@@ -95,7 +95,7 @@
                         }
                     }
                 },
-                last_name: {
+                lastname: {
                     validators: {
                         stringLength: {
                             min: 2,
