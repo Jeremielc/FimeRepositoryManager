@@ -1,3 +1,4 @@
+<%@ page import="com.fimelab.reman.controller.RegisterPageController" %>
 <script type="text/javascript">search_word();</script>
 
 <nav class="navbar navbar-fixed-top" role="navigation">
@@ -19,11 +20,28 @@
                 <li><a href="#">All</a></li>
                 <li><a href="../upload.jsp">Upload</a></li>
             </ul>
-            <form method="post" action="Reman/register/disconnect">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a type="submit" href="Reman/register/disconnect"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+
+            <ul class="nav navbar-nav navbar-right" style="padding-right: 30px">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">CUID
+                    <b class="caret"></b></a>
+                <ul class="dropdown-menu" style="padding: 15px;min-width: 200px;">
+                    <li>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form class="form" role="form" method="post" action="Reman/register/disconnect" accept-charset="UTF-8" id="logout-nav">
+                                    <div class="form-group" style="margin-bottom: 0px;">
+                                        <button type="submit" class="btn btn-custom btn-block">
+                                            <span class="glyphicon glyphicon-log-out"></span> Logout</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
-            </form>
+            </li>
+            </ul>
+
             <!-- Input Search -->
             <form class="navbar-form navbar-right" role="search">
                 <div class="input-group">
