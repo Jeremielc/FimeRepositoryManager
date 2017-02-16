@@ -1,8 +1,17 @@
 <%@ page import="com.fimelab.reman.pojo.ToolArchiveFile" %>
 <%@ page import="com.fimelab.reman.controller.HomePageController" %>
 <%@ page import="java.util.Set" %>
+<%@ page import="com.fimelab.reman.controller.RegisterPageController" %>
+<%@ page import="javax.ws.rs.core.Response" %>
+<%@ page import="java.net.URI" %>
 <jsp:include page="html/header.jsp" />
-<jsp:include page="html/navbar.jsp" />
+<jsp:include page="html/navbar_registered.jsp" />
+
+<%
+    if (!RegisterPageController.sessions.get(session)) {
+        //Response.temporaryRedirect(new URI("/index.jsp")).build();
+    }
+%>
 
 <div class="container">
     <!-- Section -->

@@ -11,8 +11,14 @@ import java.sql.SQLException;
 
 public class UserManagement {
 
-    public UserManagement() {
+    private static UserManagement instance = new UserManagement();
 
+    private UserManagement() {
+
+    }
+
+    public static UserManagement getInstance() {
+        return UserManagement.instance;
     }
 
     public boolean registerNewUser(String cuid, String firstname, String lastname, String group, String mail, String password) {

@@ -1,31 +1,8 @@
 <jsp:include page="html/header.jsp" />
 <jsp:include page="html/navbar_registered.jsp" />
 
-<!-- Display the name of the file loaded -->
-<script>
-    $(function() {
-        $(".file_input_software input:file").change(function (){
-            var file = this.files[0];
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                $(".filename_software").val(file.name);
-            }
-            reader.readAsDataURL(file);
-        });
-    });
-</script>
-<script>
-    $(function() {
-        $(".file_input_rapport input:file").change(function (){
-            var file = this.files[0];
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                $(".filename_rapport").val(file.name);
-            }
-            reader.readAsDataURL(file);
-        });
-    });
-</script>
+<script type="text/javascript">form_upload_software();</script>
+<script type="text/javascript">form_upload_rapport();</script>
 
 <form method="post" action="Reman/file/upload" enctype="multipart/form-data" class="upload_form">
     <div class="container"> <br />
@@ -77,7 +54,7 @@
                                         <span class="input-group-btn">
                                         <div class="btn btn-default file_input_rapport"> <span class="glyphicon glyphicon-folder-open"></span>
                                             <span class="file_input_title"> Browse</span>
-                                            <input type="file" name="file" accept=".rar,.zip,.7z,.jar"/>
+                                            <input type="file" name="file" accept=".pdf, .doc, .docx, .xls, .xlsx"/>
                                         </div>
                                     </span>
                                     </div>
