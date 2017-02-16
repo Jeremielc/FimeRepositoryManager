@@ -1,27 +1,33 @@
 package com.fimelab.reman.pojo;
 
-public class ToolArchiveFile {
-    private String toolName, toolVersion, toolState, toolPath, qualificationReportPath;
+public class ToolArchiveFile implements Comparable<ToolArchiveFile> {
+    private String toolName, toolVersion, toolStatus, toolPath, qualificationReportPath, publicationDate;
     private boolean archived, qualified;
 
     public ToolArchiveFile() {
 
     }
 
-    public ToolArchiveFile(String toolName, String toolVersion, String toolState) {
+    public ToolArchiveFile(String toolName, String toolVersion, String toolStatus) {
         this.toolName = toolName;
         this.toolVersion = toolVersion;
-        this.toolState = toolState;
+        this.toolStatus = toolStatus;
     }
 
-    public ToolArchiveFile(String toolName, String toolVersion, String toolState, String toolPath, String qualificationReportPath, boolean archived, boolean qualified) {
+    public ToolArchiveFile(String toolName, String toolVersion, String toolStatus, String toolPath, String qualificationReportPath, String publicationDate, boolean archived, boolean qualified) {
         this.toolName = toolName;
         this.toolVersion = toolVersion;
-        this.toolState = toolState;
+        this.toolStatus = toolStatus;
         this.toolPath = toolPath;
         this.qualificationReportPath = qualificationReportPath;
+        this.publicationDate = publicationDate;
         this.archived = archived;
         this.qualified = qualified;
+    }
+
+    @Override
+    public int compareTo(ToolArchiveFile o) {
+        return this.getToolPath().compareTo(o.getToolPath());
     }
 
     public String getToolName() {
@@ -40,12 +46,12 @@ public class ToolArchiveFile {
         this.toolVersion = toolVersion;
     }
 
-    public String getToolState() {
-        return toolState;
+    public String getToolStatus() {
+        return toolStatus;
     }
 
-    public void setToolState(String toolState) {
-        this.toolState = toolState;
+    public void setToolStatus(String toolStatus) {
+        this.toolStatus = toolStatus;
     }
 
     public String getToolPath() {
@@ -62,6 +68,14 @@ public class ToolArchiveFile {
 
     public void setQualificationReportPath(String qualificationReportPath) {
         this.qualificationReportPath = qualificationReportPath;
+    }
+
+    public String getPublicationDate() {
+        return publicationDate;
+    }
+
+    public void setPublicationDate(String publicationDate) {
+        this.publicationDate = publicationDate;
     }
 
     public boolean isArchived() {

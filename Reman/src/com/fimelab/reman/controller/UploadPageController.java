@@ -14,7 +14,9 @@ import java.io.*;
 @Path("/file")
 public class UploadPageController {
 
-    private static String appPath = "/home/jeremie/Developpement/IdeaProjects/Reman/Reman/apps/";
+    private static String baseDir = "/home/jeremie/Developpement/IdeaProjects/Reman/Reman/";
+    static String appPath = baseDir + "apps/";
+    static String qualifPath = baseDir + "qualif/";
 
     public UploadPageController() {
 
