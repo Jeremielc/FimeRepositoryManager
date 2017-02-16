@@ -125,5 +125,32 @@ function form_register_validation() {
                 }
             })
         });
+}
 
+<!-- Display the name of software loaded in input -->
+function form_upload_software() {
+    $(function() {
+        $(".file_input_software input:file").change(function (){
+            var file = this.files[0];
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $(".filename_software").val(file.name);
+            }
+            reader.readAsDataURL(file);
+        });
+    });
+}
+
+<!-- Display the name of report loaded in input -->
+function form_upload_rapport() {
+    $(function() {
+        $(".file_input_rapport input:file").change(function (){
+            var file = this.files[0];
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $(".filename_rapport").val(file.name);
+            }
+            reader.readAsDataURL(file);
+        });
+    });
 }

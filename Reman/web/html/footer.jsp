@@ -3,6 +3,6 @@
 Bootstrap core JavaScript
 ==================================================
 -->
-<footer>
+<footer class="footer">
 </footer>
 </html>

@@ -48,6 +48,10 @@
 }
 
 /*--------------- Beginning of the container of the page --------------------*/
+html {
+    min-height: 100%;
+}
+
 body {
     padding-top: 70px;
 }
