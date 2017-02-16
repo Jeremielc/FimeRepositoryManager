@@ -26,11 +26,11 @@
                         <li>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <form class="form" role="form" method="post" action="Reman/user/login" accept-charset="UTF-8" id="login-nav">
+                                    <form class="form" role="form" method="post" action="Reman/register/login" accept-charset="UTF-8" id="login-nav">
                                         <div class="form-group">
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user color-blue"></i></span>
-                                                <input name="username" id="CUID" placeholder="CUID" class="form-control text-uppercase" type="text" required="true" minlength="8" maxlength="8" >
+                                                <input name="CUID" id="CUID" placeholder="CUID" class="form-control text-uppercase" type="text" required="true" minlength="8" maxlength="8" >
                                             </div>
                                         </div>
                                         <div class="form-group">

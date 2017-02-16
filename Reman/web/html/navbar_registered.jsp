@@ -19,9 +19,11 @@
                 <li><a href="#">All</a></li>
                 <li><a href="../upload.jsp">Upload</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-            </ul>
+            <form method="post" action="Reman/register/disconnect">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a type="submit" href="Reman/register/disconnect"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                </ul>
+            </form>
             <!-- Input Search -->
             <form class="navbar-form navbar-right" role="search">
                 <div class="input-group">
