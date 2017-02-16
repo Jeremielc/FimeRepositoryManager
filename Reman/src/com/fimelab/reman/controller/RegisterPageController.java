@@ -27,10 +27,9 @@ public class RegisterPageController {
     @POST
     @Path("/new")
     public Response registerNewUser(@Context HttpServletRequest request, @FormParam("firstname") String firstname, @FormParam("lastname") String lastname, @FormParam("CUID") String cuid, @FormParam("team") String group, @FormParam("email") String mail, @FormParam("confirm_Password") String password) throws URISyntaxException {
-        UserManagement um = UserManagement.getInstance();
         HttpSession session = request.getSession();
 
-        boolean success = um.registerNewUser(cuid.trim(), firstname.trim(), lastname.trim(), group.trim(), mail.trim(), password);
+        boolean success = UserManagement.getInstance().registerNewUser(cuid.trim(), firstname.trim(), lastname.trim(), group.trim(), mail.trim(), password);
         session.setAttribute("CUID", cuid);
 
         if (success) {
@@ -44,10 +43,9 @@ public class RegisterPageController {
     @POST
     @Path("/login")
     public Response login(@Context HttpServletRequest request, @FormParam("CUID") String cuid, @FormParam("password") String password) throws URISyntaxException {
-        UserManagement um = UserManagement.getInstance();
         HttpSession session = request.getSession();
 
-        boolean success = um.verify(cuid, password);
+        boolean success = UserManagement.getInstance().verify(cuid, password);
         session.setAttribute("CUID", cuid);
 
         if (success) {

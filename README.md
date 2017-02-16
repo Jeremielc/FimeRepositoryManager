@@ -1,4 +1,4 @@
-# FimeRepositoryManager
+# Reman
 
 Le but de ce projet est de permettre de mettre à disposition des logiciels et de les distribuer à toute personne désirant les utiliser. Pour cela, une personne ou un groupe se chargeant de l’administration d’un serveur devra pouvoir ajouter des outils a la liste des logiciels disponibles. La solution devra permettre d’archiver les version antérieurs des outils pour pouvoir en disposer en cas d’audit.
 En parallèle, un web service devra permettre à un logiciel d’informer l’utilisateur de l’existence d’une version plus récente.
