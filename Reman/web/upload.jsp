@@ -54,7 +54,7 @@
                                         <span class="input-group-btn">
                                         <div class="btn btn-default file_input_rapport"> <span class="glyphicon glyphicon-folder-open"></span>
                                             <span class="file_input_title"> Browse</span>
-                                            <input type="file" name="file" accept=".rar,.zip,.7z,.jar"/>
+                                            <input type="file" name="file" accept=".pdf, .doc, .docx, .xls, .xlsx"/>
                                         </div>
                                     </span>
                                     </div>
