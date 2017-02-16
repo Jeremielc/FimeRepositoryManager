@@ -1,3 +1,5 @@
+<script type="text/javascript">search_word();</script>
+
 <nav class="navbar navbar-fixed-top" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -23,7 +25,7 @@
             <!-- Input Search -->
             <form class="navbar-form navbar-right" role="search">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search" name="q">
+                    <input type="search" class="form-control search" placeholder="Search" name="q">
                     <div class="input-group-btn">
                         <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                     </div>

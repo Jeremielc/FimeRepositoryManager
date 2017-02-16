@@ -20,5 +20,6 @@
 
     <!-- Lib of validating field-->
     <script type="text/javascript" src='../js/bootstrap/js/bootstrapvalidator.min.js'></script>
+    <script type="text/javascript" src='../js/utils.js'></script>
 </head>
 <body>
