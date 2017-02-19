@@ -3,11 +3,16 @@ package com.fimelab.reman.controller;
 import com.fimelab.reman.database.DbManagement;
 import com.fimelab.reman.database.MySqlDbManagement;
 import com.fimelab.reman.pojo.ToolArchiveFile;
+import com.fimelab.reman.utils.SoftwareManagement;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.StreamingOutput;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.ResultSet;
@@ -120,5 +125,32 @@ public class HomePageController {
         };
 
         return Response.ok(fileStream, MediaType.APPLICATION_OCTET_STREAM).header("content-disposition", "attachment; filename = " + filename).build();
+    }
+
+    @POST
+    @Path("/archive")
+    @Produces(MediaType.TEXT_HTML)
+    public void archive(@Context HttpServletResponse response,
+                        @FormParam("filename") String filename) throws IOException {
+        SoftwareManagement.getInstance().archive(filename);
+        response.sendRedirect("/index_registered.jsp");
+    }
+
+    @POST
+    @Path("/revalidate")
+    @Produces(MediaType.TEXT_HTML)
+    public void revalidate(@Context HttpServletResponse response,
+                           @FormParam("filename") String filename) throws IOException {
+        SoftwareManagement.getInstance().revalidate(filename);
+        response.sendRedirect("/index_registered.jsp");
+    }
+
+    @POST
+    @Path("/remove")
+    @Produces(MediaType.TEXT_HTML)
+    public void remove(@Context HttpServletResponse response,
+                       @FormParam("filename") String filename) throws IOException {
+        SoftwareManagement.getInstance().remove(filename);
+        response.sendRedirect("/index_registered.jsp");
     }
 }

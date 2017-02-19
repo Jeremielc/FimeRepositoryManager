@@ -15,11 +15,11 @@
                         <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Version</th>
-                            <th>Status</th>
-                            <th>Qualified</th>
+                            <th class="col-md-1">Version</th>
+                            <th class="col-md-1">Status</th>
+                            <th class="col-md-1">Qualified</th>
                             <th>Publication date</th>
-                            <th>Actions</th>
+                            <th class="col-md-4">Actions</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -67,11 +67,11 @@
                         <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Version</th>
-                            <th>Status</th>
-                            <th>Qualified</th>
+                            <th class="col-md-1">Version</th>
+                            <th class="col-md-1">Status</th>
+                            <th class="col-md-1">Qualified</th>
                             <th>Publication date</th>
-                            <th>Actions</th>
+                            <th class="col-md-4">Actions</th>
                         </tr>
                         </thead>
                         <tbody>

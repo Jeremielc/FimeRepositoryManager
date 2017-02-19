@@ -1,6 +1,7 @@
 <%@ page import="com.fimelab.reman.pojo.ToolArchiveFile" %>
 <%@ page import="com.fimelab.reman.controller.HomePageController" %>
 <%@ page import="java.util.Set" %>
+<%@ page import="com.fimelab.reman.controller.RegisterPageController" %>
 <jsp:include page="html/header.jsp" />
 <jsp:include page="html/navbar_registered.jsp" />
 
@@ -15,11 +16,11 @@
                         <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Version</th>
-                            <th>Status</th>
-                            <th>Qualified</th>
+                            <th class="col-md-1">Version</th>
+                            <th class="col-md-1">Status</th>
+                            <th class="col-md-1">Qualified</th>
                             <th>Publication date</th>
-                            <th>Actions</th>
+                            <th class="col-md-4">Actions</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -41,14 +42,26 @@
         out.println("                            <td>" + taf.getPublicationDate() + "</td>");
         out.println("                            <td>");
         out.println("                                <div style=\"float: left;\">");
-        out.println("                                    <form method=\"post\" action=\"Reman/home/download\">");
+        out.println("                                    <form style=\"margin-left: 5px;\" method=\"post\" action=\"Reman/home/download\">");
         out.println("                                        <button name=\"filename\" value=\"" + taf.getToolPath() + "\" class=\"btn btn-success\" type=\"submit\">Download</button>");
         out.println("                                    </form>");
         out.println("                                </div>");
         if (taf.isQualified()) {
             out.println("                                <div>");
-            out.println("                                    <form method=\"post\" action=\"Reman/home/download_report\">");
+            out.println("                                    <form style=\"float: left; margin-left: 5px;\" method=\"post\" action=\"Reman/home/download_report\">");
             out.println("                                        <button name=\"filename\" value=\"" + taf.getQualificationReportPath() + "\" class=\"btn btn-warning\" type=\"submit\">Get report</button>");
+            out.println("                                    </form>");
+            out.println("                                </div>");
+        }
+        if (RegisterPageController.sessions.get(session).isAdmin()) {
+            out.println("                                <div>");
+            out.println("                                    <form style=\"float: left; margin-left: 5px;\" method=\"post\" action=\"Reman/home/archive\">");
+            out.println("                                        <button name=\"filename\" value=\"" + taf.getToolPath() + "\" class=\"btn btn-info\" type=\"submit\">Archive</button>");
+            out.println("                                    </form>");
+            out.println("                                </div>");
+            out.println("                                <div>");
+            out.println("                                    <form style=\"float: left; margin-left: 5px;\" method=\"post\" action=\"Reman/home/remove\">");
+            out.println("                                        <button name=\"filename\" value=\"" + taf.getToolPath() + "\" class=\"btn btn-danger\" type=\"submit\">Delete</button>");
             out.println("                                    </form>");
             out.println("                                </div>");
         }
@@ -67,11 +80,11 @@
                         <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Version</th>
-                            <th>Status</th>
-                            <th>Qualified</th>
+                            <th class="col-md-1">Version</th>
+                            <th class="col-md-1">Status</th>
+                            <th class="col-md-1">Qualified</th>
                             <th>Publication date</th>
-                            <th>Actions</th>
+                            <th class="col-md-4">Actions</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -89,14 +102,26 @@
         out.println("                            <td>" + taf.getPublicationDate() + "</td>");
         out.println("                            <td>");
         out.println("                                <div style=\"float: left;\">");
-        out.println("                                    <form method=\"post\" action=\"Reman/home/download\">");
+        out.println("                                    <form style=\"margin-left: 5px;\" method=\"post\" action=\"Reman/home/download\">");
         out.println("                                        <button name=\"filename\" value=\"" + taf.getToolPath() + "\" class=\"btn btn-success\" type=\"submit\">Download</button>");
         out.println("                                    </form>");
         out.println("                                </div>");
         if (taf.isQualified()) {
             out.println("                                <div>");
-            out.println("                                    <form method=\"post\" action=\"Reman/home/download_report\">");
+            out.println("                                    <form style=\"float: left; margin-left: 5px;\" method=\"post\" action=\"Reman/home/download_report\">");
             out.println("                                        <button name=\"filename\" value=\"" + taf.getQualificationReportPath() + "\" class=\"btn btn-warning\" type=\"submit\">Get report</button>");
+            out.println("                                    </form>");
+            out.println("                                </div>");
+        }
+        if (RegisterPageController.sessions.get(session).isAdmin()) {
+            out.println("                                <div>");
+            out.println("                                    <form style=\"float: left; margin-left: 5px;\" method=\"post\" action=\"Reman/home/revalidate\">");
+            out.println("                                        <button name=\"filename\" value=\"" + taf.getToolPath() + "\" class=\"btn btn-info\" type=\"submit\">Revalidate</button>");
+            out.println("                                    </form>");
+            out.println("                                </div>");
+            out.println("                                <div>");
+            out.println("                                    <form style=\"float: left; margin-left: 5px;\" method=\"post\" action=\"Reman/home/remove\">");
+            out.println("                                        <button name=\"filename\" value=\"" + taf.getToolPath() + "\" class=\"btn btn-danger\" type=\"submit\">Delete</button>");
             out.println("                                    </form>");
             out.println("                                </div>");
         }

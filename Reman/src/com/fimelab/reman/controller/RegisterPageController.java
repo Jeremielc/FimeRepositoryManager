@@ -39,7 +39,7 @@ public class RegisterPageController {
         session.setAttribute("CUID", cuid);
 
         if (success) {
-            sessions.put(session, new UserSessionInfo((String) session.getAttribute("CUID"), true));
+            sessions.put(session, new UserSessionInfo((String) session.getAttribute("CUID"), true, UserManagement.getInstance().userIsAdmin(cuid)));
             response.sendRedirect("/index_registered.jsp");
         } else {
             response.sendError(500);
@@ -58,7 +58,7 @@ public class RegisterPageController {
         session.setAttribute("CUID", cuid);
 
         if (success) {
-            sessions.put(session, new UserSessionInfo((String) session.getAttribute("CUID"), true));
+            sessions.put(session, new UserSessionInfo((String) session.getAttribute("CUID"), true, UserManagement.getInstance().userIsAdmin(cuid)));
             response.sendRedirect("/index_registered.jsp");
         } else {
             response.sendError(500);

@@ -157,4 +157,21 @@ public class UserManagement {
 
         return registeredUser;
     }
+
+    public boolean userIsAdmin(String cuid) {
+        boolean admin = false;
+
+        try {
+            ResultSet res = DbManagement.getInstance().query("SELECT * FROM USERS JOIN CREDENTIALS on USERS.uid = CREDENTIALS.uid WHERE cuid = '" + cuid + "';");
+            while (res.next()) {
+                if (res.getString("role").equals("Developer")) {
+                    admin = true;
+                }
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace(System.err);
+        }
+
+        return admin;
+    }
 }

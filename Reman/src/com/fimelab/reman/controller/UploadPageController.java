@@ -28,8 +28,8 @@ import java.util.StringTokenizer;
 public class UploadPageController {
 
     private static String baseDir = "/home/jeremie/Developpement/IdeaProjects/Reman/Reman/";
-    static String appPath = baseDir + "apps/";
-    static String qualifPath = baseDir + "qualif/";
+    public static String appPath = baseDir + "apps/";
+    public static String qualifPath = baseDir + "qualif/";
 
     public UploadPageController() {
 
@@ -72,7 +72,7 @@ public class UploadPageController {
 
         if (softwareSave && reportSave) {
             String softPath = archiveFileLocation.replace(appPath, "");
-            String reportPath = reportFileLocation.replace(qualifPath, "");
+            String reportPath = qualified.contains("yes") ? reportFileLocation.replace(qualifPath, "") : "";
 
             try {
                 DateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");

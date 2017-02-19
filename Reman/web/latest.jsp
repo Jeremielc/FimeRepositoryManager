@@ -1,6 +1,7 @@
 <%@ page import="com.fimelab.reman.pojo.ToolArchiveFile" %>
 <%@ page import="com.fimelab.reman.controller.HomePageController" %>
 <%@ page import="java.util.Set" %>
+<%@ page import="com.fimelab.reman.controller.RegisterPageController" %>
 <jsp:include page="html/header.jsp" />
 <jsp:include page="html/navbar.jsp" />
 
@@ -15,11 +16,11 @@
                         <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Version</th>
-                            <th>Status</th>
-                            <th>Qualified</th>
+                            <th class="col-md-1">Version</th>
+                            <th class="col-md-1">Status</th>
+                            <th class="col-md-1">Qualified</th>
                             <th>Publication date</th>
-                            <th>Actions</th>
+                            <th class="col-md-4">Actions</th>
                         </tr>
                         </thead>
                         <tbody>
