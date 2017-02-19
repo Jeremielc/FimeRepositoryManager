@@ -1,3 +1,4 @@
+<%@ page import="com.fimelab.reman.controller.RegisterPageController" %>
 <jsp:include page="html/header.jsp" />
 <jsp:include page="html/navbar_registered.jsp" />
 

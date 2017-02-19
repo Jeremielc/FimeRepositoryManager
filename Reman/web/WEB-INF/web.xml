@@ -35,4 +35,13 @@
             <page-encoding>UTF-8</page-encoding>
         </jsp-property-group>
     </jsp-config>
+    <filter>
+        <filter-name>Filter</filter-name>
+        <filter-class>com.fimelab.reman.utils.Filter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>Filter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <servlet-name>Jersey REST Service</servlet-name>
+    </filter-mapping>
 </web-app>
