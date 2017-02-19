@@ -8,7 +8,7 @@
 <jsp:include page="html/navbar_registered.jsp" />
 
 <%
-    if (!RegisterPageController.sessions.get(session)) {
+    if (!RegisterPageController.sessions.get(session).isLogged()) {
         //Response.temporaryRedirect(new URI("/index.jsp")).build();
     }
 %>

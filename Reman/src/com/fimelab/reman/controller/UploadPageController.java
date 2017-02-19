@@ -8,7 +8,6 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 import java.io.*;
 
 @Path("/file")
@@ -26,8 +25,8 @@ public class UploadPageController {
     @Path("/upload")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.TEXT_PLAIN)
-    public Response uploadFile(@FormDataParam("file") InputStream uploadedInputStream,
-                               @FormDataParam("file") FormDataContentDisposition fileDetail) {
+    public void uploadFile(@FormDataParam("file") InputStream uploadedInputStream,
+                           @FormDataParam("file") FormDataContentDisposition fileDetail) {
         String uploadedFileLocation = appPath + fileDetail.getFileName();
 
         // save it
@@ -35,8 +34,6 @@ public class UploadPageController {
 
         String output = "File uploaded to [" + uploadedFileLocation + "]";
         System.out.println(output);
-
-        return Response.status(200).build();
     }
 
     // save uploaded file to new location

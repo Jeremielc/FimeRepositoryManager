@@ -23,8 +23,7 @@
 
             <ul class="nav navbar-nav navbar-right" style="padding-right: 30px">
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">CUID
-                    <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><% out.print(RegisterPageController.sessions.get(session).getCuid()); %><b class="caret"></b></a>
                 <ul class="dropdown-menu" style="padding: 15px;min-width: 200px;">
                     <li>
                         <div class="row">
