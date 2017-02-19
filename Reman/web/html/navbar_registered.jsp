@@ -18,7 +18,7 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="../index_registered.jsp">Home</a></li>
                 <li><a href="#">Lastest Version</a></li>
-                <li><a href="#">All</a></li>
+                <!--<li><a href="#">All</a></li>-->
                 <li><a href="../upload_registered.jsp">Upload</a></li>
             </ul>
 

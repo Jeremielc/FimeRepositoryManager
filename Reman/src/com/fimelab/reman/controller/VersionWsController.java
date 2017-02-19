@@ -1,7 +1,6 @@
 package com.fimelab.reman.controller;
 
 import com.fimelab.reman.database.DbManagement;
-import com.fimelab.reman.database.MySqlDbManagement;
 import com.fimelab.reman.pojo.ToolArchiveFile;
 import com.fimelab.reman.utils.FileNameParser;
 
@@ -28,12 +27,8 @@ public class VersionWsController {
 
         if (taf.getToolName() != null && taf.getToolVersion() != null && taf.getToolStatus() != null) {
             try {
-                DbManagement dbMan = DbManagement.getInstance();
-                dbMan.setDelegate(new MySqlDbManagement());
-                dbMan.connection(MySqlDbManagement.dbName);
-
                 Set<String> toolVersions = new TreeSet<>();
-                ResultSet res = dbMan.query("SELECT version FROM TOOLS WHERE name = '" + taf.getToolName() + "';");
+                ResultSet res = DbManagement.getInstance().query("SELECT version FROM TOOLS WHERE name = '" + taf.getToolName() + "';");
                 while (res.next()) {
                     toolVersions.add(res.getString("version"));
                 }

@@ -18,6 +18,16 @@ import java.util.TreeSet;
 @Path("/home")
 public class HomePageController {
 
+    static {
+        try {
+            DbManagement dbMan = DbManagement.getInstance();
+            dbMan.setDelegate(new MySqlDbManagement());
+            dbMan.connection(MySqlDbManagement.dbName);
+        } catch (SQLException ex) {
+            ex.printStackTrace(System.err);
+        }
+    }
+
     public HomePageController() {
 
     }
@@ -25,11 +35,7 @@ public class HomePageController {
     public Set<ToolArchiveFile> listActiveArchiveFileFromDatabase() {
         Set<ToolArchiveFile> tools = new TreeSet<>();
         try {
-            DbManagement dbMan = DbManagement.getInstance();
-            dbMan.setDelegate(new MySqlDbManagement());
-            dbMan.connection(MySqlDbManagement.dbName);
-
-            ResultSet res = dbMan.query("SELECT * FROM TOOLS;");
+            ResultSet res = DbManagement.getInstance().query("SELECT * FROM TOOLS;");
             while (res.next()) {
                 if (res.getString("archived").equals("0")) {
                     tools.add(
@@ -46,8 +52,6 @@ public class HomePageController {
                     );
                 }
             }
-
-            dbMan.disconnection();
         } catch (SQLException ex) {
             ex.printStackTrace(System.err);
         }
@@ -58,11 +62,7 @@ public class HomePageController {
     public Set<ToolArchiveFile> listArchivedArchiveFileFromDatabase() {
         Set<ToolArchiveFile> tools = new TreeSet<>();
         try {
-            DbManagement dbMan = DbManagement.getInstance();
-            dbMan.setDelegate(new MySqlDbManagement());
-            dbMan.connection(MySqlDbManagement.dbName);
-
-            ResultSet res = dbMan.query("SELECT * FROM TOOLS;");
+            ResultSet res = DbManagement.getInstance().query("SELECT * FROM TOOLS;");
             while (res.next()) {
                 if (res.getString("archived").equals("1")) {
                     tools.add(
@@ -79,8 +79,6 @@ public class HomePageController {
                     );
                 }
             }
-
-            dbMan.disconnection();
         } catch (SQLException ex) {
             ex.printStackTrace(System.err);
         }

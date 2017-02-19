@@ -1,7 +1,6 @@
 package com.fimelab.reman.controller;
 
 import com.fimelab.reman.database.DbManagement;
-import com.fimelab.reman.database.MySqlDbManagement;
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import org.glassfish.jersey.media.multipart.FormDataParam;
 
@@ -14,8 +13,11 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
-import java.io.*;
-import java.nio.file.*;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -73,17 +75,11 @@ public class UploadPageController {
             String reportPath = reportFileLocation.replace(qualifPath, "");
 
             try {
-                DbManagement dbMan = DbManagement.getInstance();
-                dbMan.setDelegate(new MySqlDbManagement());
-                dbMan.connection(MySqlDbManagement.dbName);
-
                 DateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
                 String date = df.format(new Date());
 
-                dbMan.update("INSERT INTO `TOOLS`(`name`, `version`, `state`, `archived`, `qualified`, `toolPath`, `qualifReportPath`, `publicationDate`)" +
+                DbManagement.getInstance().update("INSERT INTO `TOOLS`(`name`, `version`, `state`, `archived`, `qualified`, `toolPath`, `qualifReportPath`, `publicationDate`)" +
                 "VALUES ('" + name + "', '" + version + "', '" + status + "', 0, " + (qualified.contains("yes") ? 1 : 0) + ", '" + softPath + "', '" + reportPath + "', '" + date + "');");
-
-                dbMan.disconnection();
             } catch (SQLException ex) {
                 ex.printStackTrace(System.err);
             }

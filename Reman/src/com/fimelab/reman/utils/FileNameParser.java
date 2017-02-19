@@ -2,7 +2,6 @@ package com.fimelab.reman.utils;
 
 import com.fimelab.reman.pojo.ToolArchiveFile;
 
-import java.io.File;
 import java.util.StringTokenizer;
 
 public class FileNameParser {
