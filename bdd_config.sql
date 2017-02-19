@@ -49,4 +49,6 @@ VALUES (1, 'HRNS9487', 'a8bf259129936884fbd23e03592e31df555ee9f467e98f74faa86651
 INSERT INTO `TOOLS`(`name`, `version`, `state`, `archived`, `qualified`, `toolPath`, `qualifReportPath`, `publicationDate`)
 VALUES ('testTool', '1.0', 'stable', TRUE, TRUE, 'testTool-v1.0-stable.zip', 'C17QUA14-02-1.odt', '2017/02/01 13:30:15'),
 	   ('testTool', '2.0', 'stable', FALSE, FALSE, 'testTool-v2.0-stable.zip', ' ', '2017/02/01 13:30:15'),
-	   ('archiveTestTool', '1.0', 'stable', TRUE, FALSE, 'archiveTestTool-v1.0-stable.zip', ' ', '2017/02/01 13:30:15');
+	   ('archiveTestTool', '1.0', 'stable', TRUE, FALSE, 'archiveTestTool-v1.0-stable.zip', ' ', '2017/02/01 13:30:15'),
+	   ('RemanWsProjectTest', '1.0', 'stable', TRUE, TRUE, 'RemanWsProjectTest-v1.0-stable.zip', 'RemanWsProjectTest_C17QUA19-02-1.pdf', '2017/02/20 00:45:30'),
+	   ('RemanWsProjectTest', '2.0', 'stable', FALSE, TRUE, 'RemanWsProjectTest-v2.0-stable.zip', 'RemanWsProjectTest_C17QUA19-02-2.pdf', '2017/02/20 00:45:44');
