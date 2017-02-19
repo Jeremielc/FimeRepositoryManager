@@ -10,7 +10,7 @@
         <div class="container">
             <h1>Active tools</h1>
             <div class="row">
-                <div class="col-md-11 col-md-offset-1">
+                <div class="col-md-12">
                     <table class="table table-striped table-condensed">
                         <thead>
                         <tr>
@@ -48,7 +48,7 @@
         if (taf.isQualified()) {
             out.println("                                <div>");
             out.println("                                    <form method=\"post\" action=\"Reman/home/download_report\">");
-            out.println("                                        <button name=\"filename\" value=\"" + taf.getQualificationReportPath() + "\" class=\"btn btn-success\" type=\"submit\">Download</button>");
+            out.println("                                        <button name=\"filename\" value=\"" + taf.getQualificationReportPath() + "\" class=\"btn btn-warning\" type=\"submit\">Get report</button>");
             out.println("                                    </form>");
             out.println("                                </div>");
         }
@@ -62,7 +62,7 @@
             </div>
             <h1>Archived tools</h1>
             <div class="row">
-                <div class="col-md-11 col-md-offset-1">
+                <div class="col-md-12">
                     <table class="table table-striped table-condensed">
                         <thead>
                         <tr>

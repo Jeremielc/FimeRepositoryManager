@@ -10,7 +10,7 @@
         <div class="container">
             <h1>Active tools</h1>
             <div class="row">
-                <div class="col-md-11 col-md-offset-1">
+                <div class="col-md-12">
                     <table class="table table-striped table-condensed">
                         <thead>
                         <tr>
@@ -62,7 +62,7 @@
             </div>
             <h1>Archived tools</h1>
             <div class="row">
-                <div class="col-md-11 col-md-offset-1">
+                <div class="col-md-12">
                     <table class="table table-striped table-condensed">
                         <thead>
                         <tr>
