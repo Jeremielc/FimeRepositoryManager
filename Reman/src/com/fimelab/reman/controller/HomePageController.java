@@ -94,8 +94,25 @@ public class HomePageController {
     public Response download(@FormParam("filename") String filename) throws Exception {
         StreamingOutput fileStream = output -> {
             try {
-                System.out.println(UploadPageController.appPath + filename);
                 java.nio.file.Path path = Paths.get(UploadPageController.appPath + filename);
+                byte[] data = Files.readAllBytes(path);
+                output.write(data);
+                output.flush();
+            } catch (Exception ex) {
+                throw new WebApplicationException("File Not Found !!");
+            }
+        };
+
+        return Response.ok(fileStream, MediaType.APPLICATION_OCTET_STREAM).header("content-disposition", "attachment; filename = " + filename).build();
+    }
+
+    @POST
+    @Path("/download_report")
+    @Produces(MediaType.APPLICATION_OCTET_STREAM)
+    public Response downloadReport(@FormParam("filename") String filename) throws Exception {
+        StreamingOutput fileStream = output -> {
+            try {
+                java.nio.file.Path path = Paths.get(UploadPageController.qualifPath + filename);
                 byte[] data = Files.readAllBytes(path);
                 output.write(data);
                 output.flush();

@@ -40,9 +40,18 @@
         out.println("                            </td>");
         out.println("                            <td>" + taf.getPublicationDate() + "</td>");
         out.println("                            <td>");
-        out.println("                                <form method=\"post\" action=\"Reman/home/download\">");
-        out.println("                                    <button name=\"filename\" value=\"" + taf.getToolPath() + "\" class=\"btn btn-success\" type=\"submit\">Download</button>");
-        out.println("                                </form>");
+        out.println("                                <div style=\"float: left;\">");
+        out.println("                                    <form method=\"post\" action=\"Reman/home/download\">");
+        out.println("                                        <button name=\"filename\" value=\"" + taf.getToolPath() + "\" class=\"btn btn-success\" type=\"submit\">Download</button>");
+        out.println("                                    </form>");
+        out.println("                                </div>");
+        if (taf.isQualified()) {
+            out.println("                                <div>");
+            out.println("                                    <form method=\"post\" action=\"Reman/home/download_report\">");
+            out.println("                                        <button name=\"filename\" value=\"" + taf.getQualificationReportPath() + "\" class=\"btn btn-success\" type=\"submit\">Download</button>");
+            out.println("                                    </form>");
+            out.println("                                </div>");
+        }
         out.println("                            </td>");
         out.println("                        </tr>");
     }
@@ -79,9 +88,18 @@
         out.println("                            </td>");
         out.println("                            <td>" + taf.getPublicationDate() + "</td>");
         out.println("                            <td>");
-        out.println("                                <form method=\"post\" action=\"Reman/home/download\">");
-        out.println("                                    <button name=\"filename\" value=\"" + taf.getToolPath() + "\" class=\"btn btn-success\" type=\"submit\">Download</button>");
-        out.println("                                </form>");
+        out.println("                                <div style=\"float: left;\">");
+        out.println("                                    <form method=\"post\" action=\"Reman/home/download\">");
+        out.println("                                        <button name=\"filename\" value=\"" + taf.getToolPath() + "\" class=\"btn btn-success\" type=\"submit\">Download</button>");
+        out.println("                                    </form>");
+        out.println("                                </div>");
+        if (taf.isQualified()) {
+            out.println("                                <div>");
+            out.println("                                    <form method=\"post\" action=\"Reman/home/download_report\">");
+            out.println("                                        <button name=\"filename\" value=\"" + taf.getQualificationReportPath() + "\" class=\"btn btn-warning\" type=\"submit\">Get report</button>");
+            out.println("                                    </form>");
+            out.println("                                </div>");
+        }
         out.println("                            </td>");
         out.println("                        </tr>");
     }
