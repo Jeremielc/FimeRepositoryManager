@@ -1,3 +1,4 @@
+<%@ page import="com.fimelab.reman.controller.RegisterPageController" %>
 <jsp:include page="html/header.jsp" />
 <jsp:include page="html/navbar_registered.jsp" />
 
@@ -28,7 +29,7 @@
                         <div class="row">
                             <div class="form-group col-md-5 col-md-offset-1">
                                 <div class="input-large">
-                                    <select class="form-control" name="team">
+                                    <select class="form-control" name="qualified">
                                         <option value="">Software qualified</option>
                                         <option value="no">No</option>
                                         <option value="yes">Yes</option>
@@ -37,7 +38,7 @@
                             </div>
                             <div class="form-group col-md-5">
                                 <div class="input-large">
-                                    <select class="form-control" name="team">
+                                    <select class="form-control" name="status">
                                         <option value="">Software status</option>
                                         <option value="stable">Stable</option>
                                         <option value="alpha">Alpha</option>
@@ -49,16 +50,16 @@
                         </div>
                         <div class="row">
                             <div class="form-group col-md-10 col-md-offset-1">
-                                    <div class="input-group">
-                                        <input placeholder="Rapport of qualification" type="text" class="form-control filename_rapport" disabled>
-                                        <span class="input-group-btn">
+                                <div class="input-group">
+                                    <input placeholder="Rapport of qualification" type="text" class="form-control filename_rapport" disabled>
+                                    <span class="input-group-btn">
                                         <div class="btn btn-default file_input_rapport"> <span class="glyphicon glyphicon-folder-open"></span>
                                             <span class="file_input_title"> Browse</span>
-                                            <input type="file" name="file" accept=".pdf, .doc, .docx, .xls, .xlsx"/>
+                                            <input type="file" name="reportFile" accept=".pdf, .doc, .docx, .xls, .xlsx"/>
                                         </div>
                                     </span>
-                                    </div>
                                 </div>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-md-10 col-md-offset-1">

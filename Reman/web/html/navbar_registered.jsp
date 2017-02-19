@@ -1,4 +1,5 @@
 <%@ page import="com.fimelab.reman.controller.RegisterPageController" %>
+
 <script type="text/javascript">search_word();</script>
 
 <nav class="navbar navbar-fixed-top" role="navigation">
@@ -15,16 +16,18 @@
         <!-- Menu button -->
         <div class="navbar-collapse collapse" id="navbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="../index.jsp">Home</a></li>
+                <li class="active"><a href="../index_registered.jsp">Home</a></li>
                 <li><a href="#">Lastest Version</a></li>
                 <li><a href="#">All</a></li>
-                <li><a href="../upload.jsp">Upload</a></li>
+                <li><a href="../upload_registered.jsp">Upload</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right" style="padding-right: 30px">
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">CUID
-                    <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <% out.print(RegisterPageController.sessions.get(session) != null ? RegisterPageController.sessions.get(session).getCuid() : "You are not supposed to be here"); %>
+                    <b class="caret"></b>
+                </a>
                 <ul class="dropdown-menu" style="padding: 15px;min-width: 200px;">
                     <li>
                         <div class="row">
