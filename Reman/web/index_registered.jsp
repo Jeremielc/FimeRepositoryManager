@@ -24,52 +24,52 @@
                         </tr>
                         </thead>
                         <tbody>
-<%!
-    private HomePageController hpc = new HomePageController();
-    private Set<ToolArchiveFile> tools;
-%>
-<%
-    tools = hpc.listActiveArchiveFileFromDatabase();
+                        <%!
+                            private HomePageController hpc = new HomePageController();
+                            private Set<ToolArchiveFile> tools;
+                        %>
+                        <%
+                            tools = hpc.listActiveArchiveFileFromDatabase();
 
-    for (ToolArchiveFile taf : tools) {
-        out.println("                        <tr>");
-        out.println("                            <td>" + taf.getToolName() + "</td>");
-        out.println("                            <td>" + taf.getToolVersion() + "</td>");
-        out.println("                            <td>" + taf.getToolStatus() + "</td>");
-        out.println("                            <td>");
-        out.println("                                <input title=\"qualified\" type=\"checkbox\"" + (taf.isQualified() ? " checked=\"checked\" " : " ") + "disabled=\"disabled\"/>");
-        out.println("                            </td>");
-        out.println("                            <td>" + taf.getPublicationDate() + "</td>");
-        out.println("                            <td");
-                out.println("                                    <form method=\"post\" action=\"Reman/home/download\">");
-                out.println("                                        <button name=\"filename\" value=\"" + taf.getToolPath() + "\" class=\"btn btn-success\" type=\"submit\">Download</button>");
-                out.println("                                    </form>");
-                out.println("                            </td>");
-                if (taf.isQualified()) {
-                    out.println("                            <td colspan=\"1\">");
-                    out.println("                                    <form method=\"post\" action=\"Reman/home/download_report\">");
-                    out.println("                                        <button name=\"filename\" value=\"" + taf.getQualificationReportPath() + "\" class=\"btn btn-warning\" type=\"submit\">Get report</button>");
-                    out.println("                                    </form>");
-                    out.println("                            </td>");
-                }else {
-                    out.println("                            <td style=\"min-width:100px;\" colspan=\"1\">");
-                    out.println("                            </td>");
-                }
-                if (RegisterPageController.sessions.get(session).isAdmin()) {
-                    out.println("                            <td colspan=\"1\">");
-                    out.println("                                    <form method=\"post\" action=\"Reman/home/archive\">");
-                    out.println("                                        <button name=\"filename\" value=\"" + taf.getToolPath() + "\" class=\"btn btn-info\" type=\"submit\">Archive</button>");
-                    out.println("                                    </form>");
-                    out.println("                            </td>");
-                    out.println("                            <td colspan=\"1\">");
-                    out.println("                                    <form method=\"post\" action=\"Reman/home/remove\">");
-                    out.println("                                        <button name=\"filename\" value=\"" + taf.getToolPath() + "\" class=\"btn btn-danger\" type=\"submit\">Delete</button>");
-                    out.println("                                    </form>");
-                    out.println("                            </td>");
-                }
-        out.println("                        </tr>");
-    }
-%>
+                            for (ToolArchiveFile taf : tools) {
+                                out.println("                        <tr>");
+                                out.println("                            <td>" + taf.getToolName() + "</td>");
+                                out.println("                            <td>" + taf.getToolVersion() + "</td>");
+                                out.println("                            <td>" + taf.getToolStatus() + "</td>");
+                                out.println("                            <td>");
+                                out.println("                                <input title=\"qualified\" type=\"checkbox\"" + (taf.isQualified() ? " checked=\"checked\" " : " ") + "disabled=\"disabled\"/>");
+                                out.println("                            </td>");
+                                out.println("                            <td>" + taf.getPublicationDate() + "</td>");
+                                out.println("                            <td>");
+                                out.println("                                    <form method=\"post\" action=\"Reman/home/download\">");
+                                out.println("                                        <button name=\"filename\" value=\"" + taf.getToolPath() + "\" class=\"btn btn-success\" type=\"submit\">Download</button>");
+                                out.println("                                    </form>");
+                                out.println("                            </td>");
+                                if (taf.isQualified()) {
+                                    out.println("                            <td colspan=\"1\">");
+                                    out.println("                                    <form method=\"post\" action=\"Reman/home/download_report\">");
+                                    out.println("                                        <button name=\"filename\" value=\"" + taf.getQualificationReportPath() + "\" class=\"btn btn-warning\" type=\"submit\">Get report</button>");
+                                    out.println("                                    </form>");
+                                    out.println("                            </td>");
+                                } else {
+                                    out.println("                            <td style=\"min-width:100px;\" colspan=\"1\">");
+                                    out.println("                            </td>");
+                                }
+                                if (RegisterPageController.sessions.get(session).isAdmin()) {
+                                    out.println("                            <td colspan=\"1\">");
+                                    out.println("                                    <form method=\"post\" action=\"Reman/home/archive\">");
+                                    out.println("                                        <button name=\"filename\" value=\"" + taf.getToolPath() + "\" class=\"btn btn-info\" type=\"submit\">Archive</button>");
+                                    out.println("                                    </form>");
+                                    out.println("                            </td>");
+                                    out.println("                            <td colspan=\"1\">");
+                                    out.println("                                    <form method=\"post\" action=\"Reman/home/remove\">");
+                                    out.println("                                        <button name=\"filename\" value=\"" + taf.getToolPath() + "\" class=\"btn btn-danger\" type=\"submit\">Delete</button>");
+                                    out.println("                                    </form>");
+                                    out.println("                            </td>");
+                                }
+                                out.println("                        </tr>");
+                            }
+                        %>
 
                         </tbody>
                     </table>
@@ -90,48 +90,48 @@
                         </tr>
                         </thead>
                         <tbody>
-<%
-    tools = hpc.listArchivedArchiveFileFromDatabase();
+                        <%
+                            tools = hpc.listArchivedArchiveFileFromDatabase();
 
-    for (ToolArchiveFile taf : tools) {
-        out.println("                        <tr>");
-        out.println("                            <td>" + taf.getToolName() + "</td>");
-        out.println("                            <td>" + taf.getToolVersion() + "</td>");
-        out.println("                            <td>" + taf.getToolStatus() + "</td>");
-        out.println("                            <td>");
-        out.println("                                <input title=\"qualified\" type=\"checkbox\"" + (taf.isQualified() ? " checked=\"checked\" " : " ") + "disabled=\"disabled\"/>");
-        out.println("                            </td>");
-        out.println("                            <td>" + taf.getPublicationDate() + "</td>");
-        out.println("                            <td>");
-        out.println("                                    <form method=\"post\" action=\"Reman/home/download\">");
-        out.println("                                        <button name=\"filename\" value=\"" + taf.getToolPath() + "\" class=\"btn btn-success\" type=\"submit\">Download</button>");
-        out.println("                                    </form>");
-        out.println("                            </td>");
-        if (taf.isQualified()) {
-            out.println("                            <td colspan=\"1\">");
-            out.println("                                    <form method=\"post\" action=\"Reman/home/download_report\">");
-            out.println("                                        <button name=\"filename\" value=\"" + taf.getQualificationReportPath() + "\" class=\"btn btn-warning\" type=\"submit\">Get report</button>");
-            out.println("                                    </form>");
-            out.println("                            </td>");
-        }else {
-            out.println("                            <td style=\"min-width:100px;\" colspan=\"1\">");
-            out.println("                            </td>");
-        }
-        if (RegisterPageController.sessions.get(session).isAdmin()) {
-            out.println("                            <td colspan=\"1\">");
-            out.println("                                    <form method=\"post\" action=\"Reman/home/revalidate\">");
-            out.println("                                        <button name=\"filename\" value=\"" + taf.getToolPath() + "\" class=\"btn btn-info\" type=\"submit\">Revalidate</button>");
-            out.println("                                    </form>");
-            out.println("                            </td>");
-            out.println("                            <td colspan=\"1\">");
-            out.println("                                    <form method=\"post\" action=\"Reman/home/remove\">");
-            out.println("                                        <button name=\"filename\" value=\"" + taf.getToolPath() + "\" class=\"btn btn-danger\" type=\"submit\">Delete</button>");
-            out.println("                                    </form>");
-            out.println("                            </td>");
-        }
-        out.println("                        </tr>");
-    }
-%>
+                            for (ToolArchiveFile taf : tools) {
+                                out.println("                        <tr>");
+                                out.println("                            <td>" + taf.getToolName() + "</td>");
+                                out.println("                            <td>" + taf.getToolVersion() + "</td>");
+                                out.println("                            <td>" + taf.getToolStatus() + "</td>");
+                                out.println("                            <td>");
+                                out.println("                                <input title=\"qualified\" type=\"checkbox\"" + (taf.isQualified() ? " checked=\"checked\" " : " ") + "disabled=\"disabled\"/>");
+                                out.println("                            </td>");
+                                out.println("                            <td>" + taf.getPublicationDate() + "</td>");
+                                out.println("                            <td>");
+                                out.println("                                    <form method=\"post\" action=\"Reman/home/download\">");
+                                out.println("                                        <button name=\"filename\" value=\"" + taf.getToolPath() + "\" class=\"btn btn-success\" type=\"submit\">Download</button>");
+                                out.println("                                    </form>");
+                                out.println("                            </td>");
+                                if (taf.isQualified()) {
+                                    out.println("                            <td colspan=\"1\">");
+                                    out.println("                                    <form method=\"post\" action=\"Reman/home/download_report\">");
+                                    out.println("                                        <button name=\"filename\" value=\"" + taf.getQualificationReportPath() + "\" class=\"btn btn-warning\" type=\"submit\">Get report</button>");
+                                    out.println("                                    </form>");
+                                    out.println("                            </td>");
+                                }else {
+                                    out.println("                            <td style=\"min-width:100px;\" colspan=\"1\">");
+                                    out.println("                            </td>");
+                                }
+                                if (RegisterPageController.sessions.get(session).isAdmin()) {
+                                    out.println("                            <td colspan=\"1\">");
+                                    out.println("                                    <form method=\"post\" action=\"Reman/home/revalidate\">");
+                                    out.println("                                        <button name=\"filename\" value=\"" + taf.getToolPath() + "\" class=\"btn btn-info\" type=\"submit\">Revalidate</button>");
+                                    out.println("                                    </form>");
+                                    out.println("                            </td>");
+                                    out.println("                            <td colspan=\"1\">");
+                                    out.println("                                    <form method=\"post\" action=\"Reman/home/remove\">");
+                                    out.println("                                        <button name=\"filename\" value=\"" + taf.getToolPath() + "\" class=\"btn btn-danger\" type=\"submit\">Delete</button>");
+                                    out.println("                                    </form>");
+                                    out.println("                            </td>");
+                                }
+                                out.println("                        </tr>");
+                            }
+                        %>
                         </tbody>
                     </table>
                 </div>

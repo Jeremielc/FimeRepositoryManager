@@ -23,39 +23,39 @@
                         </tr>
                         </thead>
                         <tbody>
-<%!
-    private HomePageController hpc = new HomePageController();
-    private Set<ToolArchiveFile> tools;
-%>
-<%
-    tools = hpc.listActiveArchiveFileFromDatabase();
+                        <%!
+                            private HomePageController hpc = new HomePageController();
+                            private Set<ToolArchiveFile> tools;
+                        %>
+                        <%
+                            tools = hpc.listActiveArchiveFileFromDatabase();
 
-    for (ToolArchiveFile taf : tools) {
-        out.println("                        <tr>");
-        out.println("                            <td>" + taf.getToolName() + "</td>");
-        out.println("                            <td>" + taf.getToolVersion() + "</td>");
-        out.println("                            <td>" + taf.getToolStatus() + "</td>");
-        out.println("                            <td>");
-        out.println("                                <input title=\"qualified\" type=\"checkbox\"" + (taf.isQualified() ? " checked=\"checked\" " : " ") + "disabled=\"disabled\"/>");
-        out.println("                            </td>");
-        out.println("                            <td>" + taf.getPublicationDate() + "</td>");
-        out.println("                            <td>");
-        out.println("                                <div style=\"float: left;\">");
-        out.println("                                    <form method=\"post\" action=\"Reman/home/download\">");
-        out.println("                                        <button name=\"filename\" value=\"" + taf.getToolPath() + "\" class=\"btn btn-success\" type=\"submit\">Download</button>");
-        out.println("                                    </form>");
-        out.println("                                </div>");
-        if (taf.isQualified()) {
-            out.println("                                <div>");
-            out.println("                                    <form method=\"post\" action=\"Reman/home/download_report\">");
-            out.println("                                        <button name=\"filename\" value=\"" + taf.getQualificationReportPath() + "\" class=\"btn btn-warning\" type=\"submit\">Get report</button>");
-            out.println("                                    </form>");
-            out.println("                                </div>");
-        }
-        out.println("                            </td>");
-        out.println("                        </tr>");
-    }
-%>
+                            for (ToolArchiveFile taf : tools) {
+                                out.println("                        <tr>");
+                                out.println("                            <td>" + taf.getToolName() + "</td>");
+                                out.println("                            <td>" + taf.getToolVersion() + "</td>");
+                                out.println("                            <td>" + taf.getToolStatus() + "</td>");
+                                out.println("                            <td>");
+                                out.println("                                <input title=\"qualified\" type=\"checkbox\"" + (taf.isQualified() ? " checked=\"checked\" " : " ") + "disabled=\"disabled\"/>");
+                                out.println("                            </td>");
+                                out.println("                            <td>" + taf.getPublicationDate() + "</td>");
+                                out.println("                            <td>");
+                                out.println("                                <div style=\"float: left;\">");
+                                out.println("                                    <form method=\"post\" action=\"Reman/home/download\">");
+                                out.println("                                        <button name=\"filename\" value=\"" + taf.getToolPath() + "\" class=\"btn btn-success\" type=\"submit\">Download</button>");
+                                out.println("                                    </form>");
+                                out.println("                                </div>");
+                                if (taf.isQualified()) {
+                                    out.println("                                <div>");
+                                    out.println("                                    <form method=\"post\" action=\"Reman/home/download_report\">");
+                                    out.println("                                        <button name=\"filename\" value=\"" + taf.getQualificationReportPath() + "\" class=\"btn btn-warning\" type=\"submit\">Get report</button>");
+                                    out.println("                                    </form>");
+                                    out.println("                                </div>");
+                                }
+                                out.println("                            </td>");
+                                out.println("                        </tr>");
+                            }
+                        %>
                         </tbody>
                     </table>
                 </div>
@@ -75,35 +75,35 @@
                         </tr>
                         </thead>
                         <tbody>
-<%
-    tools = hpc.listArchivedArchiveFileFromDatabase();
+                        <%
+                            tools = hpc.listArchivedArchiveFileFromDatabase();
 
-    for (ToolArchiveFile taf : tools) {
-        out.println("                        <tr>");
-        out.println("                            <td>" + taf.getToolName() + "</td>");
-        out.println("                            <td>" + taf.getToolVersion() + "</td>");
-        out.println("                            <td>" + taf.getToolStatus() + "</td>");
-        out.println("                            <td>");
-        out.println("                                <input title=\"qualified\" type=\"checkbox\"" + (taf.isQualified() ? " checked=\"checked\" " : " ") + "disabled=\"disabled\"/>");
-        out.println("                            </td>");
-        out.println("                            <td>" + taf.getPublicationDate() + "</td>");
-        out.println("                            <td>");
-        out.println("                                <div style=\"float: left;\">");
-        out.println("                                    <form method=\"post\" action=\"Reman/home/download\">");
-        out.println("                                        <button name=\"filename\" value=\"" + taf.getToolPath() + "\" class=\"btn btn-success\" type=\"submit\">Download</button>");
-        out.println("                                    </form>");
-        out.println("                                </div>");
-        if (taf.isQualified()) {
-            out.println("                                <div>");
-            out.println("                                    <form method=\"post\" action=\"Reman/home/download_report\">");
-            out.println("                                        <button name=\"filename\" value=\"" + taf.getQualificationReportPath() + "\" class=\"btn btn-warning\" type=\"submit\">Get report</button>");
-            out.println("                                    </form>");
-            out.println("                                </div>");
-        }
-        out.println("                            </td>");
-        out.println("                        </tr>");
-    }
-%>
+                            for (ToolArchiveFile taf : tools) {
+                                out.println("                        <tr>");
+                                out.println("                            <td>" + taf.getToolName() + "</td>");
+                                out.println("                            <td>" + taf.getToolVersion() + "</td>");
+                                out.println("                            <td>" + taf.getToolStatus() + "</td>");
+                                out.println("                            <td>");
+                                out.println("                                <input title=\"qualified\" type=\"checkbox\"" + (taf.isQualified() ? " checked=\"checked\" " : " ") + "disabled=\"disabled\"/>");
+                                out.println("                            </td>");
+                                out.println("                            <td>" + taf.getPublicationDate() + "</td>");
+                                out.println("                            <td>");
+                                out.println("                                <div style=\"float: left;\">");
+                                out.println("                                    <form method=\"post\" action=\"Reman/home/download\">");
+                                out.println("                                        <button name=\"filename\" value=\"" + taf.getToolPath() + "\" class=\"btn btn-success\" type=\"submit\">Download</button>");
+                                out.println("                                    </form>");
+                                out.println("                                </div>");
+                                if (taf.isQualified()) {
+                                    out.println("                                <div>");
+                                    out.println("                                    <form method=\"post\" action=\"Reman/home/download_report\">");
+                                    out.println("                                        <button name=\"filename\" value=\"" + taf.getQualificationReportPath() + "\" class=\"btn btn-warning\" type=\"submit\">Get report</button>");
+                                    out.println("                                    </form>");
+                                    out.println("                                </div>");
+                                }
+                                out.println("                            </td>");
+                                out.println("                        </tr>");
+                            }
+                        %>
                         </tbody>
                     </table>
                 </div>
