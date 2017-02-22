@@ -39,11 +39,6 @@
                                                 <input name="password" id="passwordInput" placeholder="Password" class="form-control" type="password" oninvalid="setCustomValidity('Enter a password!')" onchange="try{setCustomValidity('')}catch(e){}" required="">
                                             </div>
                                         </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> Remember me
-                                            </label>
-                                        </div>
                                         <div class="form-group" style="margin-bottom: 0px;">
                                             <button type="submit" class="btn btn-custom btn-block">Login</button>
                                             <p class="help-block" style="margin-top: 5px">Forgot your password ? <a href="javascript:;" data-toggle="modal" data-target="#forgot_password_Modal">Get it</a></p>
