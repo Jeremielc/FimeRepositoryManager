@@ -1,7 +1,6 @@
-<%@ page import="com.fimelab.reman.pojo.ToolArchiveFile" %>
 <%@ page import="com.fimelab.reman.controller.HomePageController" %>
+<%@ page import="com.fimelab.reman.pojo.ToolArchiveFile" %>
 <%@ page import="java.util.Set" %>
-<%@ page import="com.fimelab.reman.controller.RegisterPageController" %>
 <jsp:include page="html/header.jsp" />
 <jsp:include page="html/navbar.jsp" />
 
