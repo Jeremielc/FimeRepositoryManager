@@ -16,7 +16,6 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="../index.jsp">Home</a></li>
                 <li><a href="../latest.jsp">Lastest Version</a></li>
-                <!--<li><a href="#">All</a></li>-->
             </ul>
             <!-- Window login -->
             <ul class="nav navbar-nav navbar-right" style="padding-right: 30px">
