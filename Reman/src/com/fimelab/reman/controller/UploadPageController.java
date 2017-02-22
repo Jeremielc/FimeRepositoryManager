@@ -1,6 +1,8 @@
 package com.fimelab.reman.controller;
 
 import com.fimelab.reman.database.DbManagement;
+import com.fimelab.reman.pojo.ToolArchiveFile;
+import com.fimelab.reman.utils.SoftwareManagement;
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import org.glassfish.jersey.media.multipart.FormDataParam;
 
@@ -18,11 +20,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Set;
 import java.util.StringTokenizer;
+import java.util.TreeSet;
 
 @Path("/file")
 public class UploadPageController {
@@ -79,11 +84,12 @@ public class UploadPageController {
                 String date = df.format(new Date());
 
                 DbManagement.getInstance().update("INSERT INTO `TOOLS`(`name`, `version`, `state`, `archived`, `qualified`, `toolPath`, `qualifReportPath`, `publicationDate`)" +
-                "VALUES ('" + name + "', '" + version + "', '" + status + "', 0, " + (qualified.contains("yes") ? 1 : 0) + ", '" + softPath + "', '" + reportPath + "', '" + date + "');");
+                        "VALUES ('" + name + "', '" + version + "', '" + status + "', 0, " + (qualified.contains("yes") ? 1 : 0) + ", '" + softPath + "', '" + reportPath + "', '" + date + "');");
             } catch (SQLException ex) {
                 ex.printStackTrace(System.err);
             }
 
+            autoArchive(name, version, status, softPath);
             response.sendRedirect("/upload_registered.jsp");
         } else {
             File temp = new File(archiveFileLocation);
@@ -118,6 +124,30 @@ public class UploadPageController {
         } catch (IOException ex) {
             ex.printStackTrace(System.err);
             return false;
+        }
+    }
+
+    private void autoArchive(String toolName, String toolVersion, String toolStatus, String toolPath) {
+        try {
+            ResultSet res = DbManagement.getInstance().query("SELECT * FROM TOOLS WHERE name = '" + toolName + "' AND archived = 0 AND state = '" + toolStatus + "';");
+
+            Set<ToolArchiveFile> tafSet = new TreeSet<>();
+            ToolArchiveFile taf;
+            while (res.next()) {
+                taf = new ToolArchiveFile(res.getString("name"), res.getString("version"), res.getString("state"));
+                taf.setToolPath(res.getString("toolPath"));
+                tafSet.add(taf);
+            }
+
+            ToolArchiveFile ref = new ToolArchiveFile(toolName, toolVersion, toolStatus);
+            ref.setToolPath(toolPath);
+            for(ToolArchiveFile f : tafSet) {
+                if (f.compareTo(ref) > 0) {
+                    SoftwareManagement.getInstance().archive(f.getToolPath());
+                }
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace(System.err);
         }
     }
 }
