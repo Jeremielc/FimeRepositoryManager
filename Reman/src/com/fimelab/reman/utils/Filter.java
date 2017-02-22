@@ -25,9 +25,15 @@ public class Filter implements javax.servlet.Filter {
         HttpServletResponse response =(HttpServletResponse) servletResponse;
 
         if (request.getRequestURI().contains("_registered")) {
-            if (RegisterPageController.sessions.get(request.getSession()) == null) {
-                response.sendRedirect("/index.jsp");
-                return;
+            if (request.getRequestURI().contains("upload")) {
+                if (RegisterPageController.sessions.get(request.getSession()) == null || !RegisterPageController.sessions.get(request.getSession()).isAdmin()) {
+                    response.sendRedirect("/index.jsp");
+                }
+            } else {
+                if (RegisterPageController.sessions.get(request.getSession()) == null) {
+                    response.sendRedirect("/index.jsp");
+                    return;
+                }
             }
         }
 
