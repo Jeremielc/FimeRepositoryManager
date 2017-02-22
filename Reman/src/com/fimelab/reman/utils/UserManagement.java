@@ -25,10 +25,14 @@ public class UserManagement {
 
         try {
             boolean alreadyInDatabase = false;
-            //ToDo Verifier qu'un utilisateur ne rentre pas un cuid existant.
-
             int nbResult;
+
             ResultSet res = DbManagement.getInstance().query("SELECT * FROM USERS WHERE mail = '" + mail + "';");
+            while (res.next()) {
+                alreadyInDatabase = true;
+            }
+
+            res = DbManagement.getInstance().query("SELECT * FROM USERS JOIN CREDENTIALS on CREDENTIALS.uid = USERS.uid WHERE cuid = '" + cuid + "';");
             while (res.next()) {
                 alreadyInDatabase = true;
             }
@@ -75,7 +79,7 @@ public class UserManagement {
                     success = false;
                 }
             } else {
-                System.err.println("There is more than one user with this email address. Database compromised.");
+                System.err.println("There is at least one user with this CUID or email address. Database not compromised.");
                 success = false;
             }
         } catch (SQLException ex) {
