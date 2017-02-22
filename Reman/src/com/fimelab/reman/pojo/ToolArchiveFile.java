@@ -1,5 +1,7 @@
 package com.fimelab.reman.pojo;
 
+import java.util.StringTokenizer;
+
 public class ToolArchiveFile implements Comparable<ToolArchiveFile> {
     private String toolName, toolVersion, toolStatus, toolPath, qualificationReportPath, publicationDate;
     private boolean archived, qualified;
@@ -27,7 +29,30 @@ public class ToolArchiveFile implements Comparable<ToolArchiveFile> {
 
     @Override
     public int compareTo(ToolArchiveFile o) {
-        return this.getToolPath().compareTo(o.getToolPath());
+        if (this.getToolName().equals(o.getToolName()) && !this.getToolVersion().equals(o.getToolVersion())) {
+            Integer currentItem, foreignItem;
+            String ver1 = this.getToolVersion(), ver2 = o.getToolVersion();
+            do {
+                StringTokenizer st1 = new StringTokenizer(ver1, ".");
+                StringTokenizer st2 = new StringTokenizer(ver2, ".");
+
+                currentItem = Integer.parseInt(st1.hasMoreElements() ? st1.nextToken() : "0");
+                foreignItem = Integer.parseInt(st2.hasMoreElements() ? st2.nextToken() : "0");
+
+                if (currentItem > foreignItem) {
+                    return -1;
+                } else if (currentItem < foreignItem) {
+                    return 1;
+                } else {
+                    ver1 = st1.hasMoreTokens() ? ver1.substring(2) : "0";
+                    ver2 = st2.hasMoreTokens() ? ver2.substring(2) : "0";
+                }
+            } while (currentItem.intValue() == foreignItem.intValue());
+        } else {
+            return this.getToolPath().compareTo(o.getToolPath());
+        }
+
+        return 0;
     }
 
     public String getToolName() {
