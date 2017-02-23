@@ -24,16 +24,20 @@ public class Filter implements javax.servlet.Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response =(HttpServletResponse) servletResponse;
 
-        if (request.getRequestURI().contains("_registered")) {
-            if (request.getRequestURI().contains("upload")) {
-                if (RegisterPageController.sessions.get(request.getSession()) == null || !RegisterPageController.sessions.get(request.getSession()).isAdmin()) {
-                    response.sendRedirect("/index.jsp");
-                }
-            } else {
-                if (RegisterPageController.sessions.get(request.getSession()) == null) {
-                    response.sendRedirect("/index.jsp");
+        if (request.getRequestURI().contains("upload_registered")) {
+            if (RegisterPageController.sessions.get(request.getSession()) != null) {
+                if (!RegisterPageController.sessions.get(request.getSession()).isAdmin()) {
+                    response.sendRedirect("/index_registered.jsp");
                     return;
                 }
+            } else {
+                response.sendRedirect("/index.jsp");
+                return;
+            }
+        } else if (request.getRequestURI().contains("_registered")) {
+            if (RegisterPageController.sessions.get(request.getSession()) == null) {
+                response.sendRedirect("/index.jsp");
+                return;
             }
         }
 
