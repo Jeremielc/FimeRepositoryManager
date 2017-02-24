@@ -63,7 +63,7 @@
                                     out.println("                            </td>");
                                     out.println("                            <td colspan=\"1\">");
                                     out.println("                                    <form method=\"post\" action=\"Reman/home/remove\">");
-                                    out.println("                                        <button name=\"filename\" value=\"" + taf.getToolPath() + "\" class=\"btn btn-danger\" type=\"submit\">Delete</button>");
+                                    out.println("                                        <button name=\"filename\" value=\"" + taf.getToolPath() + "\" class=\"btn btn-danger\" onclick=\"javascript:return confirm('Are you sure you want to delete this tool ?')\" type=\"submit\">Delete</button>");
                                     out.println("                                    </form>");
                                     out.println("                            </td>");
                                 }
@@ -125,7 +125,7 @@
                                     out.println("                            </td>");
                                     out.println("                            <td colspan=\"1\">");
                                     out.println("                                    <form method=\"post\" action=\"Reman/home/remove\">");
-                                    out.println("                                        <button name=\"filename\" value=\"" + taf.getToolPath() + "\" class=\"btn btn-danger\" type=\"submit\">Delete</button>");
+                                    out.println("                                        <button name=\"filename\" value=\"" + taf.getToolPath() + "\" class=\"btn btn-danger\" onclick=\"javascript:return confirm('Are you sure you want to delete this tool ?')\" type=\"submit\">Delete</button>");
                                     out.println("                                    </form>");
                                     out.println("                            </td>");
                                 }
