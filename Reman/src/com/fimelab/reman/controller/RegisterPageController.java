@@ -40,7 +40,7 @@ public class RegisterPageController {
 
         if (success) {
             sessions.put(session, new UserSessionInfo((String) session.getAttribute("CUID"), true, UserManagement.getInstance().userIsAdmin(cuid)));
-            response.sendRedirect("/index_registered.jsp");
+            response.sendRedirect("/Reman/index_registered.jsp");
         } else {
             response.sendError(500);
         }
@@ -59,7 +59,7 @@ public class RegisterPageController {
 
         if (success) {
             sessions.put(session, new UserSessionInfo((String) session.getAttribute("CUID"), true, UserManagement.getInstance().userIsAdmin(cuid)));
-            response.sendRedirect("/index_registered.jsp");
+            response.sendRedirect("/Reman/index_registered.jsp");
         } else {
             response.sendError(500);
         }
@@ -70,6 +70,6 @@ public class RegisterPageController {
     public void disconnect(@Context HttpServletRequest request,
                            @Context HttpServletResponse response) throws URISyntaxException, IOException {
         sessions.remove(request.getSession());
-        response.sendRedirect("/index.jsp");
+        response.sendRedirect("/Reman/index.jsp");
     }
 }

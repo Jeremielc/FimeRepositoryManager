@@ -21,7 +21,7 @@ public class LatestPageController {
     public void archive(@Context HttpServletResponse response,
                         @FormParam("filename") String filename) throws IOException {
         SoftwareManagement.getInstance().archive(filename);
-        response.sendRedirect("/latest_registered.jsp");
+        response.sendRedirect("/Reman/latest_registered.jsp");
     }
 
     @POST
@@ -30,6 +30,6 @@ public class LatestPageController {
     public void remove(@Context HttpServletResponse response,
                        @FormParam("filename") String filename) throws IOException {
         SoftwareManagement.getInstance().remove(filename);
-        response.sendRedirect("/latest_registered.jsp");
+        response.sendRedirect("/Reman/latest_registered.jsp");
     }
 }

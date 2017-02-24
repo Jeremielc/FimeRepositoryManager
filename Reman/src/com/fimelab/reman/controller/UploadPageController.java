@@ -90,7 +90,7 @@ public class UploadPageController {
             }
 
             autoArchive(name, version, status, softPath);
-            response.sendRedirect("/upload_registered.jsp");
+            response.sendRedirect("/Reman/upload_registered.jsp");
         } else {
             File temp = new File(archiveFileLocation);
             if (temp.exists()) {

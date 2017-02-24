@@ -9,13 +9,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" style="padding-left: 120px" href="../index.jsp">Reman</a>
+            <a class="navbar-brand" style="padding-left: 120px" href="../Reman/index.jsp">Reman</a>
         </div>
         <!-- Menu button -->
         <div class="navbar-collapse collapse" id="navbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="../index.jsp">Home</a></li>
-                <li><a href="../latest.jsp">Lastest Version</a></li>
+                <li class="active"><a href="../Reman/index.jsp">Home</a></li>
+                <li><a href="../Reman/latest.jsp">Lastest Version</a></li>
             </ul>
             <!-- Window login -->
             <ul class="nav navbar-nav navbar-right" style="padding-right: 30px">
@@ -42,7 +42,7 @@
                                             <button type="submit" class="btn btn-custom btn-block">Login</button>
                                             <p class="help-block" style="margin-top: 5px">Forgot your password ? <a href="javascript:;" data-toggle="modal" data-target="#forgot_password_Modal">Get it</a></p>
                                             <p class="text-center text-muted h4"> or </p>
-                                            <a href="../register.jsp" class="btn btn-warning btn-block">Registration</a>
+                                            <a href="../Reman/register.jsp" class="btn btn-warning btn-block">Registration</a>
                                         </div>
                                     </form>
                                 </div>

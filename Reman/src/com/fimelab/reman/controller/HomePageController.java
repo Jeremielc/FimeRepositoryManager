@@ -132,7 +132,7 @@ public class HomePageController {
     public void archive(@Context HttpServletResponse response,
                         @FormParam("filename") String filename) throws IOException {
         SoftwareManagement.getInstance().archive(filename);
-        response.sendRedirect("/index_registered.jsp");
+        response.sendRedirect("/Reman/index_registered.jsp");
     }
 
     @POST
@@ -141,7 +141,7 @@ public class HomePageController {
     public void revalidate(@Context HttpServletResponse response,
                            @FormParam("filename") String filename) throws IOException {
         SoftwareManagement.getInstance().revalidate(filename);
-        response.sendRedirect("/index_registered.jsp");
+        response.sendRedirect("/Reman/index_registered.jsp");
     }
 
     @POST
@@ -150,6 +150,6 @@ public class HomePageController {
     public void remove(@Context HttpServletResponse response,
                        @FormParam("filename") String filename) throws IOException {
         SoftwareManagement.getInstance().remove(filename);
-        response.sendRedirect("/index_registered.jsp");
+        response.sendRedirect("/Reman/index_registered.jsp");
     }
 }
