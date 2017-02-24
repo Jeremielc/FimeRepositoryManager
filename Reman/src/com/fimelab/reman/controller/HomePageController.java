@@ -5,6 +5,7 @@ import com.fimelab.reman.database.MySqlDbManagement;
 import com.fimelab.reman.pojo.ToolArchiveFile;
 import com.fimelab.reman.utils.SoftwareManagement;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
