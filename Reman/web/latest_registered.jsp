@@ -26,10 +26,9 @@
                         <tbody>
                         <%!
                             private HomePageController hpc = new HomePageController();
-                            private Set<ToolArchiveFile> tools;
                         %>
                         <%
-                            tools = hpc.listActiveArchiveFileFromDatabase();
+                            Set<ToolArchiveFile> tools = hpc.listActiveArchiveFileFromDatabase();
 
                             for (ToolArchiveFile taf : tools) {
                                 out.println("                        <tr>");
@@ -57,12 +56,12 @@
                                 }
                                 if (RegisterPageController.sessions.get(session).isAdmin()) {
                                     out.println("                            <td colspan=\"1\">");
-                                    out.println("                                    <form method=\"post\" action=\"Reman/home/archive\">");
+                                    out.println("                                    <form method=\"post\" action=\"Reman/latest/archive\">");
                                     out.println("                                        <button name=\"filename\" value=\"" + taf.getToolPath() + "\" class=\"btn btn-info\" type=\"submit\">Archive</button>");
                                     out.println("                                    </form>");
                                     out.println("                            </td>");
                                     out.println("                            <td colspan=\"1\">");
-                                    out.println("                                    <form method=\"post\" action=\"Reman/home/remove\">");
+                                    out.println("                                    <form method=\"post\" action=\"Reman/latest/remove\">");
                                     out.println("                                        <button name=\"filename\" value=\"" + taf.getToolPath() + "\" class=\"btn btn-danger\" onclick=\"javascript:return confirm('Are you sure you want to delete this tool ?')\" type=\"submit\">Delete</button>");
                                     out.println("                                    </form>");
                                     out.println("                            </td>");

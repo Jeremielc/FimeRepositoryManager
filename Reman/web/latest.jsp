@@ -1,7 +1,6 @@
 <%@ page import="com.fimelab.reman.controller.HomePageController" %>
 <%@ page import="com.fimelab.reman.pojo.ToolArchiveFile" %>
 <%@ page import="java.util.Set" %>
-<%@ page import="com.fimelab.reman.controller.RegisterPageController" %>
 <jsp:include page="html/header.jsp" />
 <jsp:include page="html/navbar.jsp" />
 
@@ -26,10 +25,9 @@
                         <tbody>
                         <%!
                             private HomePageController hpc = new HomePageController();
-                            private Set<ToolArchiveFile> tools;
                         %>
                         <%
-                            tools = hpc.listActiveArchiveFileFromDatabase();
+                            Set<ToolArchiveFile> tools = hpc.listActiveArchiveFileFromDatabase();
 
                             for (ToolArchiveFile taf : tools) {
                                 out.println("                        <tr>");

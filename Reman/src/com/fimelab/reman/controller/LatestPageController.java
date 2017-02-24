@@ -12,9 +12,6 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import java.io.IOException;
 
-/**
- * Created by jeremie on 20/02/17.
- */
 @Path("/latest")
 public class LatestPageController {
 
@@ -24,15 +21,6 @@ public class LatestPageController {
     public void archive(@Context HttpServletResponse response,
                         @FormParam("filename") String filename) throws IOException {
         SoftwareManagement.getInstance().archive(filename);
-        response.sendRedirect("/latest_registered.jsp");
-    }
-
-    @POST
-    @Path("/revalidate")
-    @Produces(MediaType.TEXT_HTML)
-    public void revalidate(@Context HttpServletResponse response,
-                           @FormParam("filename") String filename) throws IOException {
-        SoftwareManagement.getInstance().revalidate(filename);
         response.sendRedirect("/latest_registered.jsp");
     }
 

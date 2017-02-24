@@ -25,10 +25,9 @@
                         <tbody>
                         <%!
                             private HomePageController hpc = new HomePageController();
-                            private Set<ToolArchiveFile> tools;
                         %>
                         <%
-                            tools = hpc.listActiveArchiveFileFromDatabase();
+                            Set<ToolArchiveFile> tools = hpc.listActiveArchiveFileFromDatabase();
 
                             for (ToolArchiveFile taf : tools) {
                                 out.println("                        <tr>");
