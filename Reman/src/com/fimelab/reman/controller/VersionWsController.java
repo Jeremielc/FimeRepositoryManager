@@ -23,6 +23,7 @@ public class VersionWsController {
     @POST
     @Path("/check")
     public Response checkVersion(@FormParam("toolInfo") String toolInfo) {
+        System.out.println(toolInfo);
         ToolArchiveFile taf = FileNameParser.getInstance().parse(toolInfo);
 
         if (taf.getToolName() != null && taf.getToolVersion() != null && taf.getToolStatus() != null) {
